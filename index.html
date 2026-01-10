@@ -8,58 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-
-  <div id="scrollIndicator"></div>
-#scrollIndicator{
-  position:fixed;
-  right:12px;
-  top:0;
-  width:4px;
-  height:0;
-  background:#0b6fae;
-  border-radius:10px;
-  z-index:999;
-}
-<script>
-window.addEventListener("scroll",()=>{
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  const sc = (window.scrollY / h) * 100;
-  document.getElementById("scrollIndicator").style.height = sc + "%";
-});
-</script>
-  
-<div id="musicBtn">🎵</div>
-#musicBtn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:48px;
-  height:48px;
-  background:#0b6fae;
-  color:white;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-  cursor:pointer;
-  box-shadow:0 8px 20px rgba(0,0,0,.2);
-  z-index:999;
-}
-<script>
-let playing=true;
-musicBtn.onclick=()=>{
-  if(playing){
-    music.pause();
-    musicBtn.style.opacity=".6";
-  }else{
-    music.play();
-    musicBtn.style.opacity="1";
-  }
-  playing=!playing;
-};
-</script>
-
 html,body{
   margin:0;
   font-family:'Lora',serif;
@@ -67,29 +15,6 @@ html,body{
   overflow:hidden;
   color:#0b4f6c;
 }
-  
-/* animasi section */
-section{
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 1s ease;
-}
-section.show{
-  opacity:1;
-  transform:translateY(0);
-}
-<script>
-const sections = document.querySelectorAll("section");
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-},{threshold:0.15});
-
-sections.forEach(sec=>observer.observe(sec));
-</script>
 
 /* ===== COVER ===== */
 #cover{
