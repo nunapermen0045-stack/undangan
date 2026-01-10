@@ -12,15 +12,15 @@ html,body{
   margin:0;
   font-family:'Lora',serif;
   background:#edf6fb;
-  overflow:hidden;
   color:#0b4f6c;
+  overflow-x:hidden;
 }
 
 /* ===== COVER ===== */
 #cover{
   position:fixed;
   inset:0;
-  background:url('cover.jpg') center/cover no-repeat;
+  background:url('assets/cover.jpg') center/cover no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -64,11 +64,17 @@ html,body{
 /* ===== CONTENT ===== */
 #content{
   display:none;
-  background:url('content.jpg') center/cover fixed no-repeat;
 }
 section{
   padding:70px 18px;
   text-align:center;
+  opacity:0;              /* start hidden */
+  transform:translateY(30px); /* start slightly down */
+}
+section.visible{
+  opacity:1;
+  transform:translateY(0);
+  transition:opacity 0.8s ease, transform 0.8s ease;
 }
 .card{
   background:rgba(255,255,255,.93);
@@ -77,8 +83,6 @@ section{
   max-width:680px;
   margin:auto;
 }
-
-/* Judul nama */
 .nama{
   font-family:'Playfair Display',serif;
   font-size:34px;
@@ -139,7 +143,7 @@ button{
     <p>THE WEDDING OF</p>
     <h1>Risma & Nurul</h1>
     <p id="guestName"></p>
-    <a href="#" class="btn" onclick="openInvite()">Buka Undangan</a>
+    <a href="#" class="btn" id="openBtn">Buka Undangan</a>
   </div>
 </div>
 
@@ -154,20 +158,16 @@ button{
 <section>
   <div class="card">
     <p><b>Assalamu'alaikum Warahmatullahi Wabarakatuh</b></p>
-
     <p style="margin-top:16px;line-height:1.7">
       Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.
       Maka dengan izin Allah perkenankanlah pernikahan kami :
     </p>
-
     <div class="nama">Kharisma Maharani Wijanarko</div>
     <p style="font-size:14px">
       Putri pertama Bapak Joko Krisno Juwito<br>
       dan Ibu Alfiani
     </p>
-
     <p style="margin:22px 0;font-style:italic">Dengan</p>
-
     <div class="nama">Muhamad Nurul Arifin</div>
   </div>
 </section>
@@ -228,7 +228,7 @@ button{
       <option>Tidak Hadir</option>
     </select>
     <textarea id="pesan" placeholder="Ucapan & Doa"></textarea>
-    <button onclick="kirim()">Kirim</button>
+    <button id="kirimBtn">Kirim</button>
   </div>
 </section>
 
@@ -241,42 +241,69 @@ button{
 </div>
 
 <script>
-/* Nama tamu dari link */
-const p=new URLSearchParams(location.search);
-const g=p.get("to");
-if(g) guestName.innerText=`Kepada Yth: ${g}`;
+document.addEventListener("DOMContentLoaded", function() {
+  const cover = document.getElementById("cover");
+  const content = document.getElementById("content");
+  const music = document.getElementById("music");
+  const guestName = document.getElementById("guestName");
+  const p = new URLSearchParams(location.search);
+  const g = p.get("to");
+  if(g) guestName.innerText = `Kepada Yth: ${g}`;
 
-/* Open */
-function openInvite(){
-  cover.style.opacity="0";
-  setTimeout(()=>{
-    cover.style.display="none";
-    content.style.display="block";
-    document.body.style.overflow="auto";
-    music.play();
-  },1200);
-}
+  // Buka undangan
+  document.getElementById("openBtn").addEventListener("click", function(e){
+    e.preventDefault();
+    cover.style.opacity = "0";
+    setTimeout(()=>{
+      cover.style.display = "none";
+      content.style.display = "block";
+      document.body.style.overflow = "auto";
+      music.play().catch(()=>{});
+      fadeInSections();
+    },1200);
+  });
 
-/* Countdown */
-const target=new Date("July 20, 2026 08:00").getTime();
-setInterval(()=>{
-  const d=target-new Date().getTime();
-  if(d<0)return;
-  days.innerText=Math.floor(d/86400000);
-  hours.innerText=Math.floor(d%86400000/3600000);
-  minutes.innerText=Math.floor(d%3600000/60000);
-  seconds.innerText=Math.floor(d%60000/1000);
-},1000);
+  // Fade-in tiap section
+  function fadeInSections(){
+    const sections = document.querySelectorAll("#content section");
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold:0.2 });
+    sections.forEach(sec => observer.observe(sec));
+  }
 
-/* RSVP */
-function kirim(){
-  if(!nama.value||!pesan.value)return alert("Lengkapi data");
-  const div=document.createElement("div");
-  div.className="card";
-  div.innerHTML=`<b>${nama.value}</b><br>${pesan.value}<br><small>${status.value}</small>`;
-  list.prepend(div);
-  nama.value=pesan.value="";
-}
+  // Countdown
+  const target = new Date("July 20, 2026 08:00").getTime();
+  setInterval(()=>{
+    const d = target - new Date().getTime();
+    if(d < 0) return;
+    document.getElementById("days").innerText = Math.floor(d/86400000);
+    document.getElementById("hours").innerText = Math.floor(d%86400000/3600000);
+    document.getElementById("minutes").innerText = Math.floor(d%3600000/60000);
+    document.getElementById("seconds").innerText = Math.floor(d%60000/1000);
+  },1000);
+
+  // RSVP
+  const nama = document.getElementById("nama");
+  const pesan = document.getElementById("pesan");
+  const status = document.getElementById("status");
+  const list = document.getElementById("list");
+
+  document.getElementById("kirimBtn").addEventListener("click", function(){
+    if(!nama.value || !pesan.value) return alert("Lengkapi data");
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `<b>${nama.value}</b><br>${pesan.value}<br><small>${status.value}</small>`;
+    list.prepend(div);
+    nama.value = "";
+    pesan.value = "";
+  });
+
+});
 </script>
 
 </body>
