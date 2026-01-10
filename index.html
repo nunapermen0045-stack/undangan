@@ -218,7 +218,36 @@ section.show{
 <div class="time"><span id="s">0</span><small>Detik</small></div>
 </div>
 </section>
+  
+<!-- RSVP -->
+<section>
+  <h3>Konfirmasi Kehadiran</h3>
+  <div class="card">
+    <form id="rsvpForm">
+      <input type="text" id="rsvpNama" placeholder="Nama Anda" required
+        style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
 
+      <select id="rsvpStatus" required
+        style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
+        <option value="">-- Konfirmasi Kehadiran --</option>
+        <option value="Hadir">Hadir</option>
+        <option value="Tidak Hadir">Tidak Hadir</option>
+      </select>
+
+      <textarea id="rsvpPesan" placeholder="Ucapan & Doa"
+        style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;height:90px"></textarea>
+
+      <button type="submit" class="copy-btn" style="width:100%;margin-top:10px">
+        Kirim RSVP
+      </button>
+    </form>
+
+    <p id="rsvpNotif" style="display:none;margin-top:12px">
+      Terima kasih atas konfirmasi Anda 🤍
+    </p>
+  </div>
+</section>
+  
 <!-- KADO -->
 <section>
 <h3><i class="fa-solid fa-gift"></i> Bagi yang ingin mengirim kan kado bisa ke alamat berikut ini</h3>
@@ -317,7 +346,40 @@ function copyText(t){
 navigator.clipboard.writeText(t);
 alert("Berhasil disalin");
 }
+  
+const rsvpForm = document.getElementById('rsvpForm');
+const rsvpNotif = document.getElementById('rsvpNotif');
+
+if(rsvpForm){
+  rsvpForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const nama = document.getElementById('rsvpNama').value;
+    const status = document.getElementById('rsvpStatus').value;
+    const pesan = document.getElementById('rsvpPesan').value;
+
+    if(!nama || !status){
+      alert("Nama dan kehadiran wajib diisi");
+      return;
+    }
+
+    const data = {
+      nama,
+      status,
+      pesan,
+      waktu: new Date().toLocaleString()
+    };
+
+    let rsvpList = JSON.parse(localStorage.getItem('rsvpList')) || [];
+    rsvpList.push(data);
+    localStorage.setItem('rsvpList', JSON.stringify(rsvpList));
+
+    rsvpForm.reset();
+    rsvpNotif.style.display = "block";
+  });
+}
 </script>
+
   
 
 </body>
