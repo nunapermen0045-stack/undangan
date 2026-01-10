@@ -12,10 +12,11 @@ html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:url('content.jpg') center/cover fixed no-repeat;
+  background:url('content.jpg') center/cover no-repeat fixed;
   color:#033e6b;
 }
 
+/* ===== COVER ===== */
 .cover{
   min-height:100vh;
   background:url('cover.jpg') center/cover no-repeat;
@@ -24,16 +25,15 @@ body{
   justify-content:center;
   text-align:center;
 }
-
 .box{
   background:rgba(255,255,255,.8);
-  padding:40px 30px;
+  padding:42px 30px;
   border-radius:22px;
   max-width:90%;
 }
 
+/* ===== UMUM ===== */
 section{padding:80px 20px;text-align:center}
-
 .card{
   background:rgba(255,255,255,.88);
   padding:35px;
@@ -41,50 +41,44 @@ section{padding:80px 20px;text-align:center}
   max-width:650px;
   margin:20px auto;
 }
-
-h1,h2{font-family:'Playfair Display',serif}
-
+h1,h2{font-family:'Playfair Display',serif;margin:10px 0}
 .btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 34px;
-  background:#0a6ebd;
-  color:white;
-  border-radius:30px;
-  text-decoration:none;
+  display:inline-block;margin-top:20px;
+  padding:12px 34px;background:#0a6ebd;color:#fff;
+  border-radius:30px;text-decoration:none
 }
 
-/* Animasi teks */
+/* ===== ANIMASI TEKS ===== */
 .animate span{
-  opacity:0;
-  display:inline-block;
-  animation:fadeUp .6s forwards;
+  opacity:0;display:inline-block;
+  animation:fadeUp .6s forwards
 }
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(15px)}
   to{opacity:1;transform:translateY(0)}
 }
 
+/* ===== FORM ===== */
 input,select,textarea{
-  width:100%;
-  padding:12px;
-  margin:8px 0;
-  border-radius:12px;
-  border:1px solid #ccc;
+  width:100%;padding:12px;margin:8px 0;
+  border-radius:12px;border:1px solid #ccc
 }
 button{
-  width:100%;
-  padding:12px;
-  background:#0a6ebd;
-  color:white;
-  border:none;
-  border-radius:20px;
+  width:100%;padding:12px;background:#0a6ebd;
+  color:#fff;border:none;border-radius:20px
+}
+
+/* ===== COUNTDOWN ===== */
+#countdown span{
+  display:inline-block;margin:8px;padding:14px 16px;
+  background:#fff;border-radius:14px;min-width:70px
 }
 </style>
 </head>
 
 <body>
 
+<!-- MUSIK -->
 <audio autoplay loop>
   <source src="https://cdn.pixabay.com/audio/2023/03/28/audio_3f5a7d3b48.mp3">
 </audio>
@@ -128,11 +122,14 @@ button{
 <!-- MAPS -->
 <section>
   <h2>Lokasi Acara</h2>
-  <iframe src="https://www.google.com/maps?q=masjid+indonesia&output=embed"
-  width="100%" height="300" style="border-radius:20px;border:0"></iframe>
+  <iframe
+    src="https://www.google.com/maps?q=masjid+indonesia&output=embed"
+    width="100%" height="300"
+    style="border:0;border-radius:20px">
+  </iframe>
 </section>
 
-<!-- AMPL0P -->
+<!-- AMPL0P DIGITAL -->
 <section>
   <h2>Amplop Digital</h2>
   <div class="card">
@@ -163,6 +160,7 @@ button{
 </section>
 
 <script>
+/* Animasi huruf */
 function anim(id,text){
   const el=document.getElementById(id);
   el.innerHTML="";
@@ -180,17 +178,16 @@ anim("namaText","Risma & Nurul");
 const target=new Date("July 20, 2026 08:00").getTime();
 setInterval(()=>{
   const now=new Date().getTime();
-  const d=target-now;
-  if(d<0)return;
+  const d=target-now; if(d<0) return;
   document.getElementById("countdown").innerHTML=
-  `${Math.floor(d/86400000)} hari
-   ${Math.floor(d%86400000/3600000)} jam
-   ${Math.floor(d%3600000/60000)} menit`;
+    `<span>${Math.floor(d/86400000)}<br>Hari</span>
+     <span>${Math.floor(d%86400000/3600000)}<br>Jam</span>
+     <span>${Math.floor(d%3600000/60000)}<br>Menit</span>`;
 },1000);
 
-/* RSVP */
+/* RSVP + Ucapan (terbaru di atas) */
 function kirim(){
-  if(!nama.value||!pesan.value)return alert("Lengkapi data");
+  if(!nama.value||!pesan.value) return alert("Lengkapi data");
   const d=document.createElement("div");
   d.className="card";
   d.innerHTML=`<b>${nama.value}</b><br>${pesan.value}<br><small>${status.value}</small>`;
