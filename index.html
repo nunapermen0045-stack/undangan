@@ -235,11 +235,11 @@ section.show{
 <div class="card">
 <p><i class="fa-solid fa-credit-card"></i> <b>BCA</b></p>
 <p>8546077506<br>a.n Kharisma Maharani Wijanarko</p>
-<button class="copy-btn" onclick="copyText('1234567890')">Salin Rek</button>
+<button class="copy-btn" onclick="copyText('8546077506')">Salin Rek</button>
 <hr style="margin:24px 0">
 <p><i class="fa-solid fa-credit-card"></i> <b>BCA</b></p>
 <p>1960570371<br>a.n Muhamad Nurul Arifin</p>
-<button class="copy-btn" onclick="copyText('0987654321')">Salin Rek</button>
+<button class="copy-btn" onclick="copyText('1960570371')">Salin Rek</button>
 </div>
 </section>
 
@@ -301,7 +301,8 @@ s.innerText=Math.floor(x%60000/1000);
 },1000);
 
 musicBtn.onclick=()=>{
-music.paused?(music.play(),musicBtn.classList.remove('paused')):(music.pause(),musicBtn.classList.add('paused'));
+music.paused?(music.play(),musicBtn.classList.remove('paused')):(music.pause(),musicBtn.classList.add('paused'));animate();
+startAutoScroll();
 };
 
 window.addEventListener('scroll',()=>{
@@ -317,6 +318,28 @@ function copyText(t){
 navigator.clipboard.writeText(t);
 alert("Berhasil disalin");
 }
+<script>
+let autoScroll;
+let isAutoScroll = true;
+
+function startAutoScroll(){
+  autoScroll = setInterval(()=>{
+    if(!isAutoScroll) return;
+    window.scrollBy({ top: 1, behavior: 'smooth' });
+  }, 40); // makin besar angka = makin lambat
+}
+
+function stopAutoScroll(){
+  isAutoScroll = false;
+  clearInterval(autoScroll);
+}
+
+/* Hentikan kalau user interaksi */
+['wheel','touchstart','keydown'].forEach(evt=>{
+  window.addEventListener(evt, stopAutoScroll, { once:true });
+});
+</script>
+
 </script>
 
 </body>
