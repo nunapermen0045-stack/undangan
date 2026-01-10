@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Wedding Of Risma & Nurul</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Lora:wght@400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<!-- ICON -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -13,17 +16,22 @@
 html,body{
   margin:0;
   font-family:'Lora',serif;
-  background:#edf6fb;
-  color:#0b4f6c;
+  background:#0b0b0b;
+  color:#f5f5f5;
   overflow-x:hidden;
   scroll-behavior:smooth;
+}
+
+:root{
+  --gold:#d4af37;
+  --gold-soft:#e6c96f;
 }
 
 /* COVER */
 #cover{
   position:fixed;
   inset:0;
-  background:url('cover.jpg') center/cover no-repeat;
+  background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('cover.jpg') center/cover no-repeat;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -31,24 +39,28 @@ html,body{
   transition:opacity 1.2s ease;
 }
 .cover-box{
-  background:rgba(255,255,255,.92);
+  background:rgba(15,15,15,.95);
   padding:42px 34px;
   border-radius:30px;
   text-align:center;
+  border:1px solid var(--gold);
 }
 .cover-box h1{
   font-family:'Playfair Display',serif;
   font-size:36px;
+  color:var(--gold);
 }
-#guestName{font-size:13px;color:#555}
+#guestName{font-size:13px;color:#ccc}
 
+/* BUTTON */
 .btn{
   margin-top:24px;
   padding:13px 38px;
-  background:#0b6fae;
-  color:white;
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#000;
   border-radius:30px;
   text-decoration:none;
+  font-weight:600;
   position:relative;
   overflow:hidden;
 }
@@ -64,12 +76,12 @@ html,body{
 /* CONTENT */
 #content{
   display:none;
-  background:url('content.jpg') center/cover fixed no-repeat;
+  background:linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.85)),url('content.jpg') center/cover fixed no-repeat;
 }
 
 /* SECTION */
 section{
-  padding:20px 18px;
+  padding:18px 16px;
   text-align:center;
   opacity:0;
   transform:translateY(35px);
@@ -80,22 +92,29 @@ section.show{
   transition:.9s ease;
 }
 
+/* CARD */
 .card{
-  background:rgba(255,255,255,.95);
-  padding:34px 26px;
+  background:rgba(18,18,18,.95);
+  padding:32px 24px;
   border-radius:26px;
   max-width:700px;
-  margin:20px auto;
+  margin:18px auto;
+  border:1px solid rgba(212,175,55,.35);
 }
 
-/* TEXT */
+/* ================= NAMA MEMPELAI (WAH) ================= */
 .nama{
-  font-family:'Playfair Display',serif;
-  font-size:34px;
-  margin:18px 0 6px;
+  font-family:'Great Vibes',cursive;
+  font-size:44px;
+  color:var(--gold);
+  margin:22px 0 10px;
+  letter-spacing:1px;
+  text-shadow:
+    0 0 6px rgba(212,175,55,.55),
+    0 0 14px rgba(212,175,55,.35);
 }
 
-/* COUNTDOWN */
+/* ================= COUNTDOWN ================= */
 .countdown{
   display:flex;
   gap:12px;
@@ -103,66 +122,69 @@ section.show{
   flex-wrap:wrap;
 }
 .time{
-  background:white;
+  background:#111;
   width:80px;
   padding:14px;
   border-radius:16px;
-  box-shadow:0 8px 18px rgba(0,0,0,.15);
+  border:1px solid var(--gold);
 }
 .time span{
   font-size:24px;
   font-weight:600;
-  color:#0b6fae;
+  color:var(--gold);
 }
 
-/* BUTTON */
+/* BUTTON COPY */
 .copy-btn{
   margin-top:12px;
   padding:10px 22px;
   border-radius:22px;
   border:none;
-  background:#0b6fae;
-  color:white;
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#000;
+  font-weight:600;
 }
 
-/* MUSIC FLOAT */
+/* ================= MUSIC FLOAT ================= */
 #musicBtn{
   position:fixed;
   right:18px;
   bottom:24px;
   width:54px;
   height:54px;
-  background:#0b6fae;
-  color:white;
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#000;
   border-radius:50%;
   display:flex;
   justify-content:center;
   align-items:center;
   z-index:50;
-  box-shadow:0 10px 25px rgba(0,0,0,.25);
+  box-shadow:0 10px 25px rgba(0,0,0,.6);
   animation:spin 6s linear infinite;
 }
 #musicBtn.paused{animation:none;opacity:.7}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* SCROLL INDICATOR */
+/* ================= SCROLL INDICATOR ================= */
 #scrollBar{
   position:fixed;
   right:8px;
   top:50%;
   transform:translateY(-50%);
   width:4px;
-  height:130px;
-  background:rgba(255,255,255,.6);
+  height:120px;
+  background:rgba(255,255,255,.25);
   border-radius:4px;
   z-index:40;
 }
 #scrollProgress{
   width:100%;
   height:0%;
-  background:#0b6fae;
+  background:var(--gold);
   border-radius:4px;
 }
+
+h3{color:var(--gold)}
 </style>
 </head>
 
@@ -195,7 +217,7 @@ section.show{
     <div class="nama">Kharisma Maharani Wijanarko</div>
     <p>Putri pertama Bapak Joko Krisno Juwito<br>dan Ibu Alfiani</p>
     <p>Desa Nglobo RT 03 RW 02 Depan Masjid Almuttaqin Nglobo</p>
-    <p style="margin:22px 0;font-style:italic">Dengan</p>
+    <p style="margin:18px 0;font-style:italic">Dengan</p>
     <div class="nama">Muhamad Nurul Arifin</div>
     <p>Putra pertama Bapak Sulimin dan Ibu Sayuti</p>
     <p>Dk Cerme Desa Tobo RT 03 RW 01 Kec Jati Kab Blora</p>
