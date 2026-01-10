@@ -5,181 +5,108 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Wedding</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-html { scroll-behavior: smooth; }
-body {
+html{scroll-behavior:smooth;}
+body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(to bottom,#e8f4ff,#ffffff);
+  background:url('content.jpg') center/cover fixed;
   color:#033e6b;
 }
-section { padding:60px 20px; text-align:center; }
-h1,h2 { font-family:'Playfair Display',serif; }
 
-.cover {
+/* COVER */
+.cover{
   min-height:100vh;
+  background:url('cover.jpg') center/cover;
   display:flex;
-  flex-direction:column;
+  align-items:center;
   justify-content:center;
-  background:linear-gradient(rgba(3,62,107,.6),rgba(3,62,107,.6)),
-  url('https://images.unsplash.com/photo-1529634891501-b0c3b1a84c77') center/cover;
-  color:white;
+  text-align:center;
 }
-.cover h1 { font-size:40px; animation:fadeDown 2s; }
-.cover p { letter-spacing:3px; }
+.cover-box{
+  background:rgba(255,255,255,.75);
+  padding:40px 25px;
+  border-radius:20px;
+}
 
-.btn {
+/* ANIMASI TEKS */
+.fade-text span{
+  opacity:0;
+  display:inline-block;
+  animation:fadeIn 0.6s forwards;
+}
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* BUTTON */
+.btn{
+  margin-top:20px;
+  display:inline-block;
+  padding:12px 30px;
   background:#0a6ebd;
   color:white;
-  padding:12px 30px;
   border-radius:30px;
   text-decoration:none;
-  display:inline-block;
-  margin-top:20px;
 }
 
-.countdown div {
-  display:inline-block;
-  background:white;
-  color:#0a6ebd;
-  padding:15px;
-  margin:5px;
-  border-radius:10px;
-  min-width:70px;
+/* SECTION */
+section{
+  padding:70px 20px;
+  text-align:center;
 }
-
-.card {
-  background:white;
-  padding:25px;
+.card{
+  background:rgba(255,255,255,.85);
+  padding:30px;
   border-radius:20px;
   max-width:600px;
   margin:20px auto;
-  box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
-
-input,select,textarea {
-  width:100%;
-  padding:10px;
-  margin:8px 0;
-  border-radius:10px;
-  border:1px solid #ccc;
-}
-
-button {
-  background:#0a6ebd;
-  color:white;
-  border:none;
-  padding:12px;
-  border-radius:20px;
-  width:100%;
-}
-
-.ornament {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-  background:url('https://i.ibb.co/jz0c6qQ/flower.png') repeat;
-  opacity:0.18;
-  animation:float 60s linear infinite;
-}
-
-@keyframes fadeDown {
-  from {opacity:0; transform:translateY(-40px);}
-  to {opacity:1; transform:translateY(0);}
-}
-@keyframes float {
-  from {background-position:0 0;}
-  to {background-position:1000px 1000px;}
+h1,h2{
+  font-family:'Playfair Display',serif;
 }
 </style>
 </head>
 
 <body>
 
-<div class="ornament"></div>
-
-<audio autoplay loop>
-  <source src="https://cdn.pixabay.com/audio/2023/05/23/audio_3c1b5b93f7.mp3">
-</audio>
-
-<section class="cover">
-  <p>THE WEDDING OF</p>
-  <h1>Risma & Nurul</h1>
-  <a href="#acara" class="btn">Buka Undangan</a>
-</section>
-
-<section id="acara">
-  <h2>Save The Date</h2>
-  <div class="countdown" id="countdown"></div>
-</section>
-
-<section>
-  <div class="card">
-    <h2>Akad Nikah</h2>
-    <p>Senin, 02 Februari 2026<br>09.00 WIB</p>
-    <h2>Resepsi</h2>
-    <p>Senin, 02 Februari 2026<br>10.00 WIB</p>
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-box">
+    <div class="fade-text" id="judul"></div>
+    <a href="#isi" class="btn">Buka Undangan</a>
   </div>
-</section>
+</div>
 
-<section>
-  <h2>Lokasi Acara</h2>
-  <iframe src="https://www.google.com/maps?q=masjid+indonesia&output=embed" width="100%" height="300" style="border-radius:20px;"></iframe>
-</section>
-
-<section>
-  <h2>Amplop Digital</h2>
+<!-- ISI -->
+<section id="isi">
   <div class="card">
-    <p><b>BCA</b></p>
-    <p>1234567890</p>
-    <p>a.n. Risma</p>
-  </div>
-</section>
+    <h2>Assalamu’alaikum Wr. Wb.</h2>
+    <p>Dengan memohon rahmat Allah SWT,<br>
+    kami mengundang Bapak/Ibu/Saudara/i<br>
+    untuk hadir pada acara pernikahan kami</p>
 
-<section>
-  <h2>Konfirmasi Kehadiran</h2>
-  <div class="card">
-    <input id="nama" placeholder="Nama">
-    <select id="hadir">
-      <option>Hadir</option>
-      <option>Tidak Hadir</option>
-    </select>
-    <textarea id="pesan" placeholder="Ucapan & Doa"></textarea>
-    <button onclick="kirim()">Kirim</button>
+    <h1 class="fade-text" id="nama"></h1>
   </div>
-</section>
-
-<section>
-  <h2>Ucapan & Doa</h2>
-  <div id="list"></div>
 </section>
 
 <script>
-const target = new Date("July 20, 2026 08:00").getTime();
-setInterval(()=>{
-  const now=new Date().getTime();
-  const d=target-now;
-  if(d<0)return;
-  document.getElementById("countdown").innerHTML=
-  `<div>${Math.floor(d/86400000)}<br>Hari</div>
-   <div>${Math.floor(d%86400000/3600000)}<br>Jam</div>
-   <div>${Math.floor(d%3600000/60000)}<br>Menit</div>`;
-},1000);
-
-function kirim(){
-  const n=nama.value,p=pesan.value,h=hadir.value;
-  if(!n||!p)return alert("Lengkapi data");
-  const d=document.createElement("div");
-  d.className="card";
-  d.innerHTML=`<b>${n}</b><br>${p}<br><small>${h}</small>`;
-  document.getElementById("list").prepend(d);
-  nama.value=pesan.value="";
+function animateText(id,text){
+  const el=document.getElementById(id);
+  el.innerHTML='';
+  text.split('').forEach((char,i)=>{
+    const span=document.createElement('span');
+    span.textContent=char;
+    span.style.animationDelay=`${i*0.08}s`;
+    el.appendChild(span);
+  });
 }
+
+animateText("judul","Risma & Nurul");
+animateText("nama","Risma & Nurul");
 </script>
 
 </body>
