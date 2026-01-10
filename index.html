@@ -3,20 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Wedding Of</title>
+<title>The Wedding Of Risma & Nurul</title>
 
-<!-- Google Fonts -->
+<!-- FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
-
-<!-- Font Awesome untuk ikon ATM -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-pOe4Zr5nh0Iu+O0aZbOtkj6nSmcAQK+8xK4vF6Q/k+Sos2B6gBf4j7A78jx/FGGqGm6x3JdwLxT0VZ6NjkXx2w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+*{box-sizing:border-box}
 html,body{
   margin:0;
   font-family:'Lora',serif;
-  background:#edf6fb;
   color:#0b4f6c;
+  background:#edf6fb;
   overflow-x:hidden;
 }
 
@@ -28,13 +27,13 @@ html,body{
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:100;
+  z-index:99;
   transition:opacity 1.2s ease;
 }
 .cover-box{
-  background:rgba(255,255,255,.85);
-  padding:40px 32px;
-  border-radius:28px;
+  background:rgba(255,255,255,.88);
+  padding:42px 34px;
+  border-radius:30px;
   text-align:center;
 }
 .cover-box h1{
@@ -44,12 +43,12 @@ html,body{
 }
 #guestName{font-size:13px;color:#555}
 
-/* Tombol berkilau */
+/* BUTTON */
 .btn{
-  margin-top:22px;
-  padding:12px 36px;
+  margin-top:24px;
+  padding:13px 38px;
   background:#0b6fae;
-  color:#fff;
+  color:white;
   border-radius:30px;
   text-decoration:none;
   display:inline-block;
@@ -69,87 +68,76 @@ html,body{
 #content{
   display:none;
   background:url('assets/content.jpg') center/cover fixed no-repeat;
-  background-size:cover;
 }
 section{
   padding:70px 18px;
   text-align:center;
   opacity:0;
-  transform:translateY(30px);
+  transform:translateY(35px);
 }
-section.visible{
+section.show{
   opacity:1;
   transform:translateY(0);
-  transition:opacity 0.8s ease, transform 0.8s ease;
+  transition:all .9s ease;
 }
 .card{
-  background:rgba(255,255,255,.93);
-  padding:32px 24px;
-  border-radius:24px;
-  max-width:680px;
+  background:rgba(255,255,255,.94);
+  padding:34px 26px;
+  border-radius:26px;
+  max-width:700px;
   margin:auto;
 }
+
+/* TEXT */
 .nama{
   font-family:'Playfair Display',serif;
   font-size:34px;
-  margin:20px 0 6px;
+  margin:18px 0 6px;
 }
 
-/* ===== COUNTDOWN ===== */
+/* COUNTDOWN */
 .countdown{
   display:flex;
   justify-content:center;
   gap:12px;
-  margin-top:25px;
   flex-wrap:wrap;
 }
-.time-box{
+.time{
   background:white;
   width:80px;
-  padding:14px 10px;
+  padding:14px;
   border-radius:16px;
-  box-shadow:0 8px 20px rgba(0,80,140,.15);
+  box-shadow:0 8px 18px rgba(0,0,0,.15);
 }
-.time-box span{
-  display:block;
+.time span{
   font-size:24px;
   font-weight:600;
   color:#0b6fae;
 }
-.time-box small{
-  font-size:11px;
-  color:#555;
-}
 
-/* ===== FORM ===== */
-input,select,textarea{
+/* REKENING */
+.rek{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  justify-content:center;
+  margin-top:14px;
+}
+.rek i{font-size:26px;color:#0b6fae}
+
+/* FORM */
+input,select,textarea,button{
   width:100%;
-  padding:11px;
-  margin:6px 0;
-  border-radius:12px;
+  padding:12px;
+  border-radius:14px;
   border:1px solid #ccc;
+  margin:6px 0;
   font-family:'Lora';
 }
 button{
-  width:100%;
-  padding:11px;
   background:#0b6fae;
   color:white;
   border:none;
-  border-radius:20px;
-}
-
-/* ===== ICON REKENING ===== */
-.icon-card{
-  margin-right:6px;
-  color:#0b6fae;
-}
-.card-rek{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  margin-top:8px;
 }
 </style>
 </head>
@@ -177,39 +165,48 @@ button{
 <section>
   <div class="card">
     <p><b>Assalamu'alaikum Warahmatullahi Wabarakatuh</b></p>
-    <p style="margin-top:16px;line-height:1.7">
+    <p style="line-height:1.7;margin-top:14px">
       Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.
-      Maka dengan izin Allah perkenankanlah pernikahan kami :
+      Dengan memohon ridho-Nya kami bermaksud melangsungkan pernikahan:
     </p>
+
     <div class="nama">Kharisma Maharani Wijanarko</div>
-    <p style="font-size:14px">
-      Putri pertama Bapak Joko Krisno Juwito<br>
-      dan Ibu Alfiani
-    </p>
+    <p>Putri pertama Bapak Joko Krisno Juwito<br>dan Ibu Alfiani</p>
+
     <p style="margin:22px 0;font-style:italic">Dengan</p>
+
     <div class="nama">Muhamad Nurul Arifin</div>
-    <p style="font-size:14px">
-      Putra pertama Bapak Sulimin dan Ibu Sayuti
+    <p>Putra pertama Bapak Sulimin dan Ibu Sayuti</p>
+  </div>
+</section>
+
+<!-- AKAD -->
+<section>
+  <div class="card">
+    <h3>Akad Nikah</h3>
+    <p>Minggu, 20 Juli 2026<br>08.00 WIB</p>
+    <p>Jl. Mawar No. 10, Jakarta</p>
+  </div>
+</section>
+
+<!-- SISIPAN -->
+<section>
+  <div class="card">
+    <p style="line-height:1.7">
+      Dengan memohon limpahan Rahmat dan Ridho Allah SWT,
+      kami bermaksud menyelenggarakan Resepsi Pernikahan
+      yang akan dilaksanakan pada tanggal :
     </p>
   </div>
 </section>
 
-<!-- AKAD & RESEPSI -->
+<!-- RESEPSI -->
 <section>
   <div class="card">
-    <h3>Akad Nikah & Resepsi</h3>
-    <p>Minggu, 20 Juli 2026<br>08.00 WIB</p>
-    <p>Lokasi: Jl. Mawar No. 10, Jakarta</p>
-  </div>
-</section>
-
-<!-- UCAPAN TERIMA KASIH -->
-<section>
-  <div class="card">
-    <h3>Ucapan Terima Kasih</h3>
-    <p>Terima kasih atas doa dan kehadiran Anda di hari bahagia kami.</p>
-    <p style="margin-top:10px;font-style:italic">Hormat kami,</p>
-    <p style="margin-top:4px"><b>Risma & Nurul</b></p>
+    <h3>Resepsi Pernikahan</h3>
+    <p>Minggu, 20 Juli 2026<br>11.00 WIB – Selesai</p>
+    <p>Jl. Mawar No. 10, Jakarta</p>
+    <p style="margin-top:10px;font-style:italic">Hiburan: Organ Tunggal</p>
   </div>
 </section>
 
@@ -217,31 +214,27 @@ button{
 <section>
   <h3>Menuju Hari Bahagia</h3>
   <div class="countdown">
-    <div class="time-box"><span id="days">0</span><small>Hari</small></div>
-    <div class="time-box"><span id="hours">0</span><small>Jam</small></div>
-    <div class="time-box"><span id="minutes">0</span><small>Menit</small></div>
-    <div class="time-box"><span id="seconds">0</span><small>Detik</small></div>
+    <div class="time"><span id="d">0</span><small>Hari</small></div>
+    <div class="time"><span id="h">0</span><small>Jam</small></div>
+    <div class="time"><span id="m">0</span><small>Menit</small></div>
+    <div class="time"><span id="s">0</span><small>Detik</small></div>
   </div>
 </section>
 
-<!-- REKENING BCA -->
+<!-- REKENING -->
 <section>
-  <h3>Amplop Digital / Rekening BCA</h3>
+  <h3>Amplop Digital</h3>
   <div class="card">
-    <div class="card-rek">
-      <i class="fa-solid fa-credit-card icon-card"></i>
+    <div class="rek">
+      <i class="fa-solid fa-credit-card"></i>
       <div>
-        <p><b>BCA</b></p>
-        <p>1234567890</p>
-        <p>a.n. Kharisma Maharani Wijanarko</p>
+        <b>BCA</b><br>1234567890<br>a.n. Kharisma Maharani Wijanarko
       </div>
     </div>
-    <div class="card-rek">
-      <i class="fa-solid fa-credit-card icon-card"></i>
+    <div class="rek">
+      <i class="fa-solid fa-credit-card"></i>
       <div>
-        <p><b>BCA</b></p>
-        <p>0987654321</p>
-        <p>a.n. Muhamad Nurul Arifin</p>
+        <b>BCA</b><br>0987654321<br>a.n. Muhamad Nurul Arifin
       </div>
     </div>
   </div>
@@ -250,96 +243,65 @@ button{
 <!-- LOKASI -->
 <section>
   <h3>Lokasi Acara</h3>
-  <iframe src="https://www.google.com/maps?q=masjid+indonesia&output=embed"
-    width="100%" height="280" style="border-radius:18px;border:0"></iframe>
+  <iframe src="https://www.google.com/maps?q=Jl+Mawar+No+10+Jakarta&output=embed"
+  width="100%" height="280" style="border-radius:18px;border:0"></iframe>
 </section>
 
-<!-- RSVP -->
+<!-- PENUTUP -->
 <section>
-  <h3>Konfirmasi Kehadiran</h3>
   <div class="card">
-    <input id="nama" placeholder="Nama">
-    <select id="status">
-      <option>Hadir</option>
-      <option>Tidak Hadir</option>
-    </select>
-    <textarea id="pesan" placeholder="Ucapan & Doa"></textarea>
-    <button id="kirimBtn">Kirim</button>
+    <p>
+      We are so excited to have you join us on our spesial day.
+      We'd love nothing more than to have you celebrate this day with us.
+    </p>
+    <p style="margin-top:18px;font-style:italic">Kami yang berbahagia</p>
+    <p style="font-weight:bold;margin-top:6px">Risma & Nurul</p>
   </div>
-</section>
-
-<!-- UCAPAN -->
-<section>
-  <h3>Ucapan & Doa</h3>
-  <div id="list"></div>
 </section>
 
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const cover = document.getElementById("cover");
-  const content = document.getElementById("content");
-  const music = document.getElementById("music");
-  const guestName = document.getElementById("guestName");
-  const p = new URLSearchParams(location.search);
-  const g = p.get("to");
-  if(g) guestName.innerText = `Kepada Yth: ${g}`;
+const qs=e=>document.querySelector(e);
+const cover=qs('#cover');
+const content=qs('#content');
+const music=qs('#music');
 
-  // Buka undangan
-  document.getElementById("openBtn").addEventListener("click", function(e){
-    e.preventDefault();
-    cover.style.opacity = "0";
-    setTimeout(()=>{
-      cover.style.display = "none";
-      content.style.display = "block";
-      document.body.style.overflow = "auto";
-      music.play().catch(()=>{});
-      fadeInSections();
-    },1200);
-  });
+/* Nama tamu */
+const p=new URLSearchParams(location.search);
+if(p.get('to')) qs('#guestName').innerText=`Kepada Yth: ${p.get('to')}`;
 
-  // Fade-in tiap section
-  function fadeInSections(){
-    const sections = document.querySelectorAll("#content section");
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("visible");
-        }
-      });
-    }, { threshold:0.2 });
-    sections.forEach(sec => observer.observe(sec));
-  }
+/* Open */
+qs('#openBtn').onclick=e=>{
+  e.preventDefault();
+  cover.style.opacity=0;
+  setTimeout(()=>{
+    cover.style.display='none';
+    content.style.display='block';
+    document.body.style.overflow='auto';
+    music.play().catch(()=>{});
+    observe();
+  },1200);
+};
 
-  // Countdown
-  const target = new Date("July 20, 2026 08:00").getTime();
-  setInterval(()=>{
-    const d = target - new Date().getTime();
-    if(d < 0) return;
-    document.getElementById("days").innerText = Math.floor(d/86400000);
-    document.getElementById("hours").innerText = Math.floor(d%86400000/3600000);
-    document.getElementById("minutes").innerText = Math.floor(d%3600000/60000);
-    document.getElementById("seconds").innerText = Math.floor(d%60000/1000);
-  },1000);
+/* Animasi scroll */
+function observe(){
+  const obs=new IntersectionObserver(e=>{
+    e.forEach(x=>x.isIntersecting&&x.target.classList.add('show'));
+  },{threshold:.2});
+  document.querySelectorAll('section').forEach(s=>obs.observe(s));
+}
 
-  // RSVP
-  const nama = document.getElementById("nama");
-  const pesan = document.getElementById("pesan");
-  const status = document.getElementById("status");
-  const list = document.getElementById("list");
-
-  document.getElementById("kirimBtn").addEventListener("click", function(){
-    if(!nama.value || !pesan.value) return alert("Lengkapi data");
-    const div = document.createElement("div");
-    div.className = "card";
-    div.innerHTML = `<b>${nama.value}</b><br>${pesan.value}<br><small>${status.value}</small>`;
-    list.prepend(div);
-    nama.value = "";
-    pesan.value = "";
-  });
-
-});
+/* Countdown */
+const target=new Date("July 20, 2026 08:00").getTime();
+setInterval(()=>{
+  const t=target-new Date().getTime();
+  if(t<0)return;
+  d.innerText=Math.floor(t/86400000);
+  h.innerText=Math.floor(t%86400000/3600000);
+  m.innerText=Math.floor(t%3600000/60000);
+  s.innerText=Math.floor(t%60000/1000);
+},1000);
 </script>
 
 </body>
