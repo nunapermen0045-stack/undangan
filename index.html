@@ -2,302 +2,183 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>The Wedding Of</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 html { scroll-behavior: smooth; }
-
 body {
-  margin: 0;
-  font-family: Georgia, serif;
-  background: #ffffff;
-  color: #444;
-  text-align: center;
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(to bottom,#e8f4ff,#ffffff);
+  color:#033e6b;
 }
+section { padding:60px 20px; text-align:center; }
+h1,h2 { font-family:'Playfair Display',serif; }
 
-/* COVER */
 .cover {
-  height: 100vh;
-  background: linear-gradient(#eef2ff, #ffffff);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:linear-gradient(rgba(3,62,107,.6),rgba(3,62,107,.6)),
+  url('https://images.unsplash.com/photo-1529634891501-b0c3b1a84c77') center/cover;
+  color:white;
 }
+.cover h1 { font-size:40px; animation:fadeDown 2s; }
+.cover p { letter-spacing:3px; }
 
-.cover-box {
-  animation: fadeIn 2s ease;
-}
-
-.cover button {
-  margin-top: 20px;
-  padding: 12px 36px;
-  border-radius: 30px;
-  border: none;
-  background: #c9d6ff;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* SECTION */
-.section {
-  padding: 70px 20px;
-}
-
-.pastel {
-  background: linear-gradient(#f5f7ff, #ffffff);
-}
-
-/* COUNTDOWN */
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+.btn {
+  background:#0a6ebd;
+  color:white;
+  padding:12px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:20px;
 }
 
 .countdown div {
-  background: #ffffff;
-  padding: 15px;
-  border-radius: 18px;
-  width: 80px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  display:inline-block;
+  background:white;
+  color:#0a6ebd;
+  padding:15px;
+  margin:5px;
+  border-radius:10px;
+  min-width:70px;
 }
 
-/* MAP */
-.map-box {
-  max-width: 700px;
-  margin: 30px auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,.1);
+.card {
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  max-width:600px;
+  margin:20px auto;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
-.map-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 28px;
-  border-radius: 25px;
-  background: #c9d6ff;
-  text-decoration: none;
-  color: #000;
+input,select,textarea {
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border-radius:10px;
+  border:1px solid #ccc;
 }
 
-/* ADMIN STATS */
-.stats {
-  max-width: 420px;
-  margin: 0 auto 30px;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+button {
+  background:#0a6ebd;
+  color:white;
+  border:none;
+  padding:12px;
+  border-radius:20px;
+  width:100%;
 }
 
-.stats div {
-  display: flex;
-  justify-content: space-between;
-  margin: 6px 0;
+.ornament {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  background:url('https://i.ibb.co/jz0c6qQ/flower.png') repeat;
+  opacity:0.05;
+  animation:float 30s linear infinite;
 }
 
-/* FORM */
-form {
-  max-width: 420px;
-  margin: auto;
+@keyframes fadeDown {
+  from {opacity:0; transform:translateY(-40px);}
+  to {opacity:1; transform:translateY(0);}
 }
-
-form input, form select, form textarea {
-  width: 100%;
-  margin: 8px 0;
-  padding: 12px;
-  border-radius: 14px;
-  border: 1px solid #ddd;
-  font-family: inherit;
-}
-
-form button {
-  margin-top: 10px;
-  padding: 12px 40px;
-  border-radius: 30px;
-  border: none;
-  background: #c9d6ff;
-  cursor: pointer;
-}
-
-/* UCAPAN */
-.ucapan {
-  max-width: 650px;
-  margin: 30px auto;
-  text-align: left;
-}
-
-.ucapan-item {
-  background: #ffffff;
-  padding: 15px;
-  border-radius: 16px;
-  margin-bottom: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.05);
-}
-
-.badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  margin-left: 6px;
-}
-
-.hadir { background: #d9f3e6; color: #1e7f50; }
-.tidak { background: #ffe1e1; color: #9a2c2c; }
-
-footer {
-  background: #f5f7ff;
-  padding: 30px;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes float {
+  from {background-position:0 0;}
+  to {background-position:1000px 1000px;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- COVER -->
-<section class="cover" id="cover">
-  <div class="cover-box">
-    <h4>The Wedding Of</h4>
-    <h1>Nama & Pasangan</h1>
-    <p>Kepada Yth</p>
-    <h3 id="guest">Tamu Undangan</h3>
-    <button onclick="openInvitation()">Buka Undangan</button>
+<div class="ornament"></div>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2023/05/23/audio_3c1b5b93f7.mp3">
+</audio>
+
+<section class="cover">
+  <p>THE WEDDING OF</p>
+  <h1>Risma & Nurul</h1>
+  <a href="#acara" class="btn">Buka Undangan</a>
+</section>
+
+<section id="acara">
+  <h2>Save The Date</h2>
+  <div class="countdown" id="countdown"></div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Akad Nikah</h2>
+    <p>Minggu, 20 Juli 2026<br>08.00 WIB</p>
+    <h2>Resepsi</h2>
+    <p>Minggu, 20 Juli 2026<br>10.00 WIB</p>
   </div>
 </section>
 
-<main id="content" style="display:none">
-
-<!-- COUNTDOWN -->
-<section class="section pastel">
-  <h2>Menuju Hari Bahagia</h2>
-  <div class="countdown">
-    <div><b id="days">0</b><br>Hari</div>
-    <div><b id="hours">0</b><br>Jam</div>
-    <div><b id="minutes">0</b><br>Menit</div>
-    <div><b id="seconds">0</b><br>Detik</div>
-  </div>
-</section>
-
-<!-- ACARA -->
-<section class="section">
-  <h2>Acara Pernikahan</h2>
-  <p><b>Akad Nikah</b><br>Minggu, 20 April 2026<br>08.00 WIB</p>
-  <p><b>Resepsi</b><br>Minggu, 20 April 2026<br>11.00 WIB</p>
-</section>
-
-<!-- LOKASI -->
-<section class="section pastel">
+<section>
   <h2>Lokasi Acara</h2>
-  <p>Gedung Pernikahan / Rumah Mempelai</p>
-
-  <div class="map-box">
-    <iframe 
-      src="https://www.google.com/maps?q=Masjid+Istiqlal+Jakarta&output=embed"
-      width="100%" height="300" style="border:0;" allowfullscreen loading="lazy">
-    </iframe>
-  </div>
-
-  <a class="map-btn" target="_blank"
-     href="https://www.google.com/maps?q=Masjid+Istiqlal+Jakarta">
-     📍 Buka di Google Maps
-  </a>
+  <iframe src="https://www.google.com/maps?q=masjid+indonesia&output=embed" width="100%" height="300" style="border-radius:20px;"></iframe>
 </section>
 
-<!-- RSVP -->
-<section class="section pastel">
-  <h2>Konfirmasi Kehadiran & Ucapan</h2>
-
-  <div class="stats" id="stats" style="display:none">
-    <h3>Statistik Kehadiran</h3>
-    <div><span>Hadir</span><b id="countHadir">0</b></div>
-    <div><span>Tidak Hadir</span><b id="countTidak">0</b></div>
-    <div><span>Total</span><b id="countTotal">0</b></div>
+<section>
+  <h2>Amplop Digital</h2>
+  <div class="card">
+    <p><b>BCA</b></p>
+    <p>1234567890</p>
+    <p>a.n. Risma</p>
   </div>
+</section>
 
-  <form id="rsvpForm">
-    <input type="text" id="nama" placeholder="Nama Anda" required>
-    <select id="hadir" required>
-      <option value="">Kehadiran</option>
+<section>
+  <h2>Konfirmasi Kehadiran</h2>
+  <div class="card">
+    <input id="nama" placeholder="Nama">
+    <select id="hadir">
       <option>Hadir</option>
       <option>Tidak Hadir</option>
     </select>
-    <textarea id="pesan" placeholder="Ucapan & Doa" required></textarea>
-    <button type="submit">Kirim</button>
-  </form>
-
-  <div class="ucapan" id="listUcapan"></div>
+    <textarea id="pesan" placeholder="Ucapan & Doa"></textarea>
+    <button onclick="kirim()">Kirim</button>
+  </div>
 </section>
 
-<footer>
-  <p>Terima kasih atas doa & kehadirannya 🤍</p>
-</footer>
-
-</main>
+<section>
+  <h2>Ucapan & Doa</h2>
+  <div id="list"></div>
+</section>
 
 <script>
-function openInvitation() {
-  cover.style.display = "none";
-  content.style.display = "block";
-}
+const target = new Date("July 20, 2026 08:00").getTime();
+setInterval(()=>{
+  const now=new Date().getTime();
+  const d=target-now;
+  if(d<0)return;
+  document.getElementById("countdown").innerHTML=
+  `<div>${Math.floor(d/86400000)}<br>Hari</div>
+   <div>${Math.floor(d%86400000/3600000)}<br>Jam</div>
+   <div>${Math.floor(d%3600000/60000)}<br>Menit</div>`;
+},1000);
 
-const params = new URLSearchParams(window.location.search);
-if (params.get("to")) guest.innerText = params.get("to");
-
-const isAdmin = params.get("admin") === "true";
-if (isAdmin) stats.style.display = "block";
-
-const eventDate = new Date("April 20, 2026 08:00:00").getTime();
-setInterval(() => {
-  const d = eventDate - new Date().getTime();
-  days.innerText = Math.max(0, Math.floor(d / (1000*60*60*24)));
-  hours.innerText = Math.max(0, Math.floor((d % (1000*60*60*24)) / (1000*60*60)));
-  minutes.innerText = Math.max(0, Math.floor((d % (1000*60*60)) / (1000*60)));
-  seconds.innerText = Math.max(0, Math.floor((d % (1000*60)) / 1000));
-}, 1000);
-
-let data = JSON.parse(localStorage.getItem("ucapan")) || [];
-render();
-
-rsvpForm.addEventListener("submit", e => {
-  e.preventDefault();
-  data.unshift({
-    nama: nama.value,
-    hadir: hadir.value,
-    pesan: pesan.value
-  });
-  localStorage.setItem("ucapan", JSON.stringify(data));
-  rsvpForm.reset();
-  render();
-});
-
-function render() {
-  listUcapan.innerHTML = "";
-  let h = 0, t = 0;
-
-  data.forEach(d => {
-    d.hadir === "Hadir" ? h++ : t++;
-    listUcapan.innerHTML += `
-      <div class="ucapan-item">
-        <b>${d.nama}</b>
-        <span class="badge ${d.hadir === "Hadir" ? "hadir" : "tidak"}">${d.hadir}</span>
-        <p>${d.pesan}</p>
-      </div>`;
-  });
-
-  if (isAdmin) {
-    countHadir.innerText = h;
-    countTidak.innerText = t;
-    countTotal.innerText = data.length;
-  }
+function kirim(){
+  const n=nama.value,p=pesan.value,h=hadir.value;
+  if(!n||!p)return alert("Lengkapi data");
+  const d=document.createElement("div");
+  d.className="card";
+  d.innerHTML=`<b>${n}</b><br>${p}<br><small>${h}</small>`;
+  document.getElementById("list").prepend(d);
+  nama.value=pesan.value="";
 }
 </script>
 
