@@ -18,6 +18,19 @@ html,body{
   overflow-x:hidden;
   scroll-behavior:smooth;
 }
+.fade-scroll{
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.fade-out{
+  opacity:0;
+  transform:translateY(20px);
+}
+
+.fade-in{
+  opacity:1;
+  transform:translateY(0);
+}
 
 /* COVER */
 #cover{
@@ -317,6 +330,33 @@ function copyText(t){
 navigator.clipboard.writeText(t);
 alert("Berhasil disalin");
 }
+</script>
+  
+let lastScroll = 0;
+
+document.querySelectorAll('section').forEach(sec=>{
+  sec.classList.add('fade-scroll','fade-in');
+});
+
+window.addEventListener('scroll',()=>{
+  const currentScroll = window.scrollY;
+
+  document.querySelectorAll('section').forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+
+    if(rect.top < window.innerHeight - 100 && rect.bottom > 100){
+      if(currentScroll > lastScroll){
+        sec.classList.add('fade-out');
+        sec.classList.remove('fade-in');
+      }else{
+        sec.classList.add('fade-in');
+        sec.classList.remove('fade-out');
+      }
+    }
+  });
+
+  lastScroll = currentScroll;
+});
 </script>
 
 </body>
