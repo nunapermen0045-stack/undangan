@@ -116,13 +116,32 @@ section.show{
 }
 
 /* BUTTON */
-.copy-btn{
+.copy-btn,.copy-rek{
   margin-top:12px;
   padding:10px 22px;
   border-radius:22px;
   border:none;
   background:#0b6fae;
   color:white;
+}
+
+/* ANGPao */
+.rek-card{
+  background:white;
+  padding:18px;
+  border-radius:18px;
+  margin:14px 0;
+  box-shadow:0 8px 18px rgba(0,0,0,.15);
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.rek-logo{
+  width:48px;
+}
+.rek-info{
+  flex:1;
+  text-align:left;
 }
 
 /* MUSIC FLOAT */
@@ -185,124 +204,86 @@ section.show{
   <source src="music.mp3">
 </audio>
 
-<!-- PEMBUKA -->
+<section><div class="card"><b>Assalamu'alaikum Warahmatullahi Wabarakatuh</b></div></section>
+
+<section><div class="card">
+Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.
+</div></section>
+
 <section>
-  <div class="card">
-    <p><b>Assalamu'alaikum Warahmatullahi Wabarakatuh</b></p>
-  </div>
+<div class="card">
+<div class="nama">Kharisma Maharani Wijanarko</div>
+<p>Putri pertama Bapak Joko Krisno Juwito & Ibu Alfiani</p>
+<p style="margin:22px 0;font-style:italic">Dengan</p>
+<div class="nama">Muhamad Nurul Arifin</div>
+<p>Putra pertama Bapak Sulimin & Ibu Sayuti</p>
+</div>
 </section>
 
-<!-- PRA ISI -->
+<section><div class="card">
+<h3>Akad Nikah</h3>
+Senin Kliwon, 02 Februari 2026<br>09.00 WIB
+</div></section>
+
+<section><div class="card">
+<h3>Resepsi</h3>
+Senin Kliwon, 02 Februari 2026<br>10.00 WIB – Selesai
+</div></section>
+
 <section>
-  <div class="card">
-    <p>
-      Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.
-      Maka dengan izin Allah perkenankanlah pernikahan kami :
-    </p>
-  </div>
-</section>
-
-<!-- ISI -->
-<section>
-  <div class="card">
-    <div class="nama">Kharisma Maharani Wijanarko</div>
-    <p>Putri pertama Bapak Joko Krisno Juwito<br>dan Ibu Alfiani</p>
-
-    <p style="margin:22px 0;font-style:italic">Dengan</p>
-
-    <div class="nama">Muhamad Nurul Arifin</div>
-    <p>Putra pertama Bapak Sulimin dan Ibu Sayuti</p>
-  </div>
-</section>
-
-<!-- AKAD -->
-<section>
-  <div class="card">
-    <h3>Akad Nikah</h3>
-    <p>Senin Kliwon, 02 Februari 2026<br>09.00 WIB</p>
-    <p>Kediaman Mempelai Wanita</p>
-  </div>
-</section>
-
-<!-- SISIPAN -->
-<section>
-  <div class="card">
-    <p>
-      Dengan memohon limpahan Rahmat dan Ridho Allah SWT,
-      kami bermaksud menyelenggarakan Resepsi Pernikahan
-      yang akan dilaksanakan pada tanggal :
-    </p>
-  </div>
-</section>
-
-<!-- RESEPSI -->
-<section>
-  <div class="card">
-    <h3>Resepsi Pernikahan</h3>
-    <p>Senin Kliwon, 02 Februari 2026<br>10.00 WIB – Selesai</p>
-    <p>Hiburan: Organ Tunggal</p>
-  </div>
-</section>
-
-<!-- COUNTDOWN -->
-<section>
-  <h3>Menuju Hari Bahagia</h3>
-  <div class="countdown">
-    <div class="time"><span id="d">0</span><small>Hari</small></div>
-    <div class="time"><span id="h">0</span><small>Jam</small></div>
-    <div class="time"><span id="m">0</span><small>Menit</small></div>
-    <div class="time"><span id="s">0</span><small>Detik</small></div>
-  </div>
+<h3>Menuju Hari Bahagia</h3>
+<div class="countdown">
+<div class="time"><span id="d">0</span><small>Hari</small></div>
+<div class="time"><span id="h">0</span><small>Jam</small></div>
+<div class="time"><span id="m">0</span><small>Menit</small></div>
+<div class="time"><span id="s">0</span><small>Detik</small></div>
+</div>
 </section>
 
 <!-- KADO -->
 <section>
-  <h3><i class="fa-solid fa-gift"></i> Kirim Kado</h3>
-  <div class="card">
-    <p>
-      Kris Cell, depan Masjid Almuttaqin<br>
-      Nglobo RT 03 RW 02<br>
-      Kec. Jiken, Kab. Blora
-    </p>
-    <button class="copy-btn" onclick="copyAlamat()">Salin Alamat</button>
-
-  <iframe
-  src="https://www.google.com/maps?q=-7.0410782,111.4973953&output=embed"
-  width="100%"
-  height="280"
-  style="border-radius:18px;border:0"
-  loading="lazy"></iframe>
-
-  </div>
+<h3><i class="fa-solid fa-gift"></i> Kirim Kado</h3>
+<div class="card">
+Kris Cell, depan Masjid Almuttaqin<br>
+Nglobo RT 03 RW 02, Kec. Jiken, Kab. Blora
+<button class="copy-btn" onclick="copyAlamat()">Salin Alamat</button>
+</div>
 </section>
 
-<!-- LOKASI -->
+<!-- ANGPao -->
 <section>
-  <h3>Lokasi Acara</h3>
-  <iframe
-  src="https://www.google.com/maps?q=-7.0410782,111.4973953&output=embed"
-  width="100%"
-  height="280"
-  style="border-radius:18px;border:0"
-  loading="lazy"></iframe>
+<h3><i class="fa-solid fa-credit-card"></i> Angpao Digital</h3>
+<div class="card">
 
+<div class="rek-card">
+<img class="rek-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg">
+<div class="rek-info">
+<b>BCA</b><br>
+a.n. Kharisma Maharani Wijanarko<br>
+<b>8546077506</b><br>
+<button class="copy-rek" onclick="copyRek('1234567890')">Salin Rekening</button>
+</div>
+</div>
+
+<div class="rek-card">
+<img class="rek-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg">
+<div class="rek-info">
+<b>BCA</b><br>
+a.n. Muhamad Nurul Arifin<br>
+<b>1960570371</b><br>
+<button class="copy-rek" onclick="copyRek('0987654321')">Salin Rekening</button>
+</div>
+</div>
+
+</div>
 </section>
 
-<!-- PENUTUP -->
-<section>
-  <div class="card">
-    <p>
-      Merupakan suatu kehormatan dan kebahagiaan bagi kami
-      apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
-    </p>
-    <p style="margin-top:18px;font-style:italic">Kami yang berbahagia</p>
-    <p style="font-weight:bold">Risma & Nurul</p>
-  </div>
-</section>
+<section><div class="card">
+Terima kasih atas doa & kehadiran Bapak/Ibu/Saudara/i
+</div></section>
 
 </div>
 
-<!-- FLOAT ELEMENT -->
 <div id="musicBtn" class="paused"><i class="fa-solid fa-music"></i></div>
 <div id="scrollBar"><div id="scrollProgress"></div></div>
 
@@ -310,65 +291,55 @@ section.show{
 const qs=e=>document.querySelector(e);
 const cover=qs('#cover'), content=qs('#content'), music=qs('#music'), musicBtn=qs('#musicBtn');
 
-/* Nama tamu */
 const p=new URLSearchParams(location.search);
 if(p.get('to')) qs('#guestName').innerText=`Kepada Yth: ${p.get('to')}`;
 
-/* Open */
 qs('#openBtn').onclick=e=>{
-  e.preventDefault();
-  cover.style.opacity=0;
-  setTimeout(()=>{
-    cover.style.display='none';
-    content.style.display='block';
-    music.play().catch(()=>{});
-    musicBtn.classList.remove('paused');
-    animate();
-  },1200);
+e.preventDefault();
+cover.style.opacity=0;
+setTimeout(()=>{
+cover.style.display='none';
+content.style.display='block';
+music.play().catch(()=>{});
+musicBtn.classList.remove('paused');
+animate();
+},1200);
 };
 
-/* Animasi */
 function animate(){
-  const io=new IntersectionObserver(e=>{
-    e.forEach(x=>x.isIntersecting&&x.target.classList.add('show'));
-  },{threshold:.2});
-  document.querySelectorAll('section').forEach(s=>io.observe(s));
+const io=new IntersectionObserver(e=>{
+e.forEach(x=>x.isIntersecting&&x.target.classList.add('show'));
+},{threshold:.2});
+document.querySelectorAll('section').forEach(s=>io.observe(s));
 }
 
-/* Countdown */
 const t=new Date("February 02, 2026 09:00").getTime();
 setInterval(()=>{
-  const x=t-new Date().getTime();
-  if(x<0)return;
-  d.innerText=Math.floor(x/86400000);
-  h.innerText=Math.floor(x%86400000/3600000);
-  m.innerText=Math.floor(x%3600000/60000);
-  s.innerText=Math.floor(x%60000/1000);
+const x=t-new Date().getTime();
+if(x<0)return;
+d.innerText=Math.floor(x/86400000);
+h.innerText=Math.floor(x%86400000/3600000);
+m.innerText=Math.floor(x%3600000/60000);
+s.innerText=Math.floor(x%60000/1000);
 },1000);
 
-/* Music toggle */
 musicBtn.onclick=()=>{
-  if(music.paused){
-    music.play();
-    musicBtn.classList.remove('paused');
-  }else{
-    music.pause();
-    musicBtn.classList.add('paused');
-  }
+music.paused?(music.play(),musicBtn.classList.remove('paused')):
+(music.pause(),musicBtn.classList.add('paused'));
 };
 
-/* Scroll indicator */
 window.addEventListener('scroll',()=>{
-  const h=document.documentElement.scrollHeight-window.innerHeight;
-  qs('#scrollProgress').style.height=(scrollY/h)*100+"%";
+const h=document.documentElement.scrollHeight-window.innerHeight;
+qs('#scrollProgress').style.height=(scrollY/h)*100+"%";
 });
 
-/* Copy alamat */
 function copyAlamat(){
-  navigator.clipboard.writeText(
-    "Kris Cell, depan Masjid Almuttaqin, Nglobo RT 03 RW 02, Kec. Jiken, Kab. Blora"
-  );
-  alert("Alamat kado berhasil disalin");
+navigator.clipboard.writeText("Kris Cell, depan Masjid Almuttaqin, Nglobo RT 03 RW 02, Kec. Jiken, Kab. Blora");
+alert("Alamat disalin");
+}
+function copyRek(no){
+navigator.clipboard.writeText(no);
+alert("Rekening disalin");
 }
 </script>
 
