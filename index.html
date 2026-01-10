@@ -280,6 +280,7 @@ content.style.display='block';
 music.play().catch(()=>{});
 musicBtn.classList.remove('paused');
 animate();
+startAutoScroll();
 },1200);
 };
 
@@ -318,28 +319,12 @@ function copyText(t){
 navigator.clipboard.writeText(t);
 alert("Berhasil disalin");
 }
-<script>
+/* AUTO SCROLL */
 let autoScroll;
-let isAutoScroll = true;
-
 function startAutoScroll(){
-  autoScroll = setInterval(()=>{
-    if(!isAutoScroll) return;
-    window.scrollBy({ top: 1, behavior: 'smooth' });
-  }, 40); // makin besar angka = makin lambat
+autoScroll=setInterval(()=>window.scrollBy({top:1,behavior:'smooth'}),40);
 }
-
-function stopAutoScroll(){
-  isAutoScroll = false;
-  clearInterval(autoScroll);
-}
-
-/* Hentikan kalau user interaksi */
-['wheel','touchstart','keydown'].forEach(evt=>{
-  window.addEventListener(evt, stopAutoScroll, { once:true });
-});
-</script>
-
+['wheel','touchstart','keydown'].forEach(e=>window.addEventListener(e,()=>clearInterval(autoScroll),{once:true}));
 </script>
 
 </body>
