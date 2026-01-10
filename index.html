@@ -280,7 +280,6 @@ content.style.display='block';
 music.play().catch(()=>{});
 musicBtn.classList.remove('paused');
 animate();
-startAutoScroll();
 },1200);
 };
 
@@ -303,7 +302,6 @@ s.innerText=Math.floor(x%60000/1000);
 
 musicBtn.onclick=()=>{
 music.paused?(music.play(),musicBtn.classList.remove('paused')):(music.pause(),musicBtn.classList.add('paused'));animate();
-startAutoScroll();
 };
 
 window.addEventListener('scroll',()=>{
@@ -319,12 +317,6 @@ function copyText(t){
 navigator.clipboard.writeText(t);
 alert("Berhasil disalin");
 }
-/* AUTO SCROLL */
-let autoScroll;
-function startAutoScroll(){
-autoScroll=setInterval(()=>window.scrollBy({top:1,behavior:'smooth'}),40);
-}
-['wheel','touchstart','keydown'].forEach(e=>window.addEventListener(e,()=>clearInterval(autoScroll),{once:true}));
 </script>
 
 </body>
