@@ -16,6 +16,7 @@ html,body{
   background:#edf6fb;
   color:#0b4f6c;
   overflow-x:hidden;
+  scroll-behavior:smooth;
 }
 
 /* COVER */
@@ -30,7 +31,7 @@ html,body{
   transition:opacity 1.2s ease;
 }
 .cover-box{
-  background:rgba(255,255,255,.9);
+  background:rgba(255,255,255,.92);
   padding:42px 34px;
   border-radius:30px;
   text-align:center;
@@ -65,6 +66,8 @@ html,body{
   display:none;
   background:url('content.jpg') center/cover fixed no-repeat;
 }
+
+/* SECTION */
 section{
   padding:70px 18px;
   text-align:center;
@@ -76,6 +79,7 @@ section.show{
   transform:translateY(0);
   transition:.9s ease;
 }
+
 .card{
   background:rgba(255,255,255,.95);
   padding:34px 26px;
@@ -111,16 +115,7 @@ section.show{
   color:#0b6fae;
 }
 
-/* FLEX */
-.flex{
-  display:flex;
-  gap:14px;
-  align-items:center;
-  justify-content:center;
-  margin-top:14px;
-}
-.flex i{font-size:26px;color:#0b6fae}
-
+/* BUTTON */
 .copy-btn{
   margin-top:12px;
   padding:10px 22px;
@@ -128,6 +123,45 @@ section.show{
   border:none;
   background:#0b6fae;
   color:white;
+}
+
+/* MUSIC FLOAT */
+#musicBtn{
+  position:fixed;
+  right:18px;
+  bottom:24px;
+  width:54px;
+  height:54px;
+  background:#0b6fae;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:50;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+  animation:spin 6s linear infinite;
+}
+#musicBtn.paused{animation:none;opacity:.7}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* SCROLL INDICATOR */
+#scrollBar{
+  position:fixed;
+  right:8px;
+  top:50%;
+  transform:translateY(-50%);
+  width:4px;
+  height:130px;
+  background:rgba(255,255,255,.6);
+  border-radius:4px;
+  z-index:40;
+}
+#scrollProgress{
+  width:100%;
+  height:0%;
+  background:#0b6fae;
+  border-radius:4px;
 }
 </style>
 </head>
@@ -155,6 +189,9 @@ section.show{
 <section>
   <div class="card">
     <p><b>Assalamu'alaikum Warahmatullahi Wabarakatuh</b></p>
+  </div>
+</section>
+
 <!-- PRA ISI -->
 <section>
   <div class="card">
@@ -164,7 +201,10 @@ section.show{
     </p>
   </div>
 </section>
+
 <!-- ISI -->
+<section>
+  <div class="card">
     <div class="nama">Kharisma Maharani Wijanarko</div>
     <p>Putri pertama Bapak Joko Krisno Juwito<br>dan Ibu Alfiani</p>
 
@@ -215,11 +255,11 @@ section.show{
   </div>
 </section>
 
-<!-- KIRIM KADO -->
+<!-- KADO -->
 <section>
   <h3><i class="fa-solid fa-gift"></i> Kirim Kado</h3>
   <div class="card">
-    <p id="alamatKado">
+    <p>
       Kris Cell, depan Masjid Almuttaqin<br>
       Nglobo RT 03 RW 02<br>
       Kec. Jiken, Kab. Blora
@@ -229,21 +269,19 @@ section.show{
     <iframe
       src="https://www.google.com/maps?q=Kris+Cell+Masjid+Almuttaqin+Nglobo+Jiken+Blora&output=embed"
       width="100%" height="240"
-      style="border:0;border-radius:18px"
-      loading="lazy">
-    </iframe>
+      style="border:0;border-radius:18px;margin-top:16px"
+      loading="lazy"></iframe>
   </div>
 </section>
 
-<!-- LOKASI ACARA -->
+<!-- LOKASI -->
 <section>
   <h3>Lokasi Acara</h3>
   <iframe
     src="https://www.google.com/maps?q=Masjid+Almuttaqin+Nglobo+Jiken+Blora&output=embed"
     width="100%" height="280"
     style="border-radius:18px;border:0"
-    loading="lazy">
-  </iframe>
+    loading="lazy"></iframe>
 </section>
 
 <!-- PENUTUP -->
@@ -260,9 +298,13 @@ section.show{
 
 </div>
 
+<!-- FLOAT ELEMENT -->
+<div id="musicBtn" class="paused"><i class="fa-solid fa-music"></i></div>
+<div id="scrollBar"><div id="scrollProgress"></div></div>
+
 <script>
 const qs=e=>document.querySelector(e);
-const cover=qs('#cover'), content=qs('#content'), music=qs('#music');
+const cover=qs('#cover'), content=qs('#content'), music=qs('#music'), musicBtn=qs('#musicBtn');
 
 /* Nama tamu */
 const p=new URLSearchParams(location.search);
@@ -275,18 +317,18 @@ qs('#openBtn').onclick=e=>{
   setTimeout(()=>{
     cover.style.display='none';
     content.style.display='block';
-    document.body.style.overflow='auto';
     music.play().catch(()=>{});
+    musicBtn.classList.remove('paused');
     animate();
   },1200);
 };
 
 /* Animasi */
 function animate(){
-  const o=new IntersectionObserver(e=>{
+  const io=new IntersectionObserver(e=>{
     e.forEach(x=>x.isIntersecting&&x.target.classList.add('show'));
   },{threshold:.2});
-  document.querySelectorAll('section').forEach(s=>o.observe(s));
+  document.querySelectorAll('section').forEach(s=>io.observe(s));
 }
 
 /* Countdown */
@@ -299,6 +341,23 @@ setInterval(()=>{
   m.innerText=Math.floor(x%3600000/60000);
   s.innerText=Math.floor(x%60000/1000);
 },1000);
+
+/* Music toggle */
+musicBtn.onclick=()=>{
+  if(music.paused){
+    music.play();
+    musicBtn.classList.remove('paused');
+  }else{
+    music.pause();
+    musicBtn.classList.add('paused');
+  }
+};
+
+/* Scroll indicator */
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  qs('#scrollProgress').style.height=(scrollY/h)*100+"%";
+});
 
 /* Copy alamat */
 function copyAlamat(){
