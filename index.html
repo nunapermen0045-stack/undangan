@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Wedding Of</title>
 
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome untuk ikon ATM -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-pOe4Zr5nh0Iu+O0aZbOtkj6nSmcAQK+8xK4vF6Q/k+Sos2B6gBf4j7A78jx/FGGqGm6x3JdwLxT0VZ6NjkXx2w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
 html,body{
@@ -28,7 +32,7 @@ html,body{
   transition:opacity 1.2s ease;
 }
 .cover-box{
-  background:rgba(255,255,255,.9);
+  background:rgba(255,255,255,.85);
   padding:40px 32px;
   border-radius:28px;
   text-align:center;
@@ -64,12 +68,14 @@ html,body{
 /* ===== CONTENT ===== */
 #content{
   display:none;
+  background:url('assets/content.jpg') center/cover fixed no-repeat;
+  background-size:cover;
 }
 section{
   padding:70px 18px;
   text-align:center;
-  opacity:0;              /* start hidden */
-  transform:translateY(30px); /* start slightly down */
+  opacity:0;
+  transform:translateY(30px);
 }
 section.visible{
   opacity:1;
@@ -132,6 +138,19 @@ button{
   border:none;
   border-radius:20px;
 }
+
+/* ===== ICON REKENING ===== */
+.icon-card{
+  margin-right:6px;
+  color:#0b6fae;
+}
+.card-rek{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-top:8px;
+}
 </style>
 </head>
 
@@ -169,6 +188,28 @@ button{
     </p>
     <p style="margin:22px 0;font-style:italic">Dengan</p>
     <div class="nama">Muhamad Nurul Arifin</div>
+    <p style="font-size:14px">
+      Putra pertama Bapak Sulimin dan Ibu Sayuti
+    </p>
+  </div>
+</section>
+
+<!-- AKAD & RESEPSI -->
+<section>
+  <div class="card">
+    <h3>Akad Nikah & Resepsi</h3>
+    <p>Minggu, 20 Juli 2026<br>08.00 WIB</p>
+    <p>Lokasi: Jl. Mawar No. 10, Jakarta</p>
+  </div>
+</section>
+
+<!-- UCAPAN TERIMA KASIH -->
+<section>
+  <div class="card">
+    <h3>Ucapan Terima Kasih</h3>
+    <p>Terima kasih atas doa dan kehadiran Anda di hari bahagia kami.</p>
+    <p style="margin-top:10px;font-style:italic">Hormat kami,</p>
+    <p style="margin-top:4px"><b>Risma & Nurul</b></p>
   </div>
 </section>
 
@@ -183,11 +224,26 @@ button{
   </div>
 </section>
 
-<!-- ACARA -->
+<!-- REKENING BCA -->
 <section>
+  <h3>Amplop Digital / Rekening BCA</h3>
   <div class="card">
-    <h3>Akad & Resepsi</h3>
-    <p>Minggu, 20 Juli 2026<br>08.00 WIB</p>
+    <div class="card-rek">
+      <i class="fa-solid fa-credit-card icon-card"></i>
+      <div>
+        <p><b>BCA</b></p>
+        <p>1234567890</p>
+        <p>a.n. Kharisma Maharani Wijanarko</p>
+      </div>
+    </div>
+    <div class="card-rek">
+      <i class="fa-solid fa-credit-card icon-card"></i>
+      <div>
+        <p><b>BCA</b></p>
+        <p>0987654321</p>
+        <p>a.n. Muhamad Nurul Arifin</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -196,26 +252,6 @@ button{
   <h3>Lokasi Acara</h3>
   <iframe src="https://www.google.com/maps?q=masjid+indonesia&output=embed"
     width="100%" height="280" style="border-radius:18px;border:0"></iframe>
-</section>
-
-<!-- KIRIM KADO -->
-<section>
-  <h3>Kirim Kado</h3>
-  <div class="card">
-    <p>Jl. Mawar No. 10, Jakarta</p>
-    <iframe src="https://www.google.com/maps?q=Jl+Mawar+No+10+Jakarta&output=embed"
-      width="100%" height="220" style="border-radius:18px;border:0"></iframe>
-  </div>
-</section>
-
-<!-- AMPLLOP -->
-<section>
-  <h3>Amplop Digital</h3>
-  <div class="card">
-    <p><b>BCA</b></p>
-    <p>1234567890</p>
-    <p>a.n. Risma</p>
-  </div>
 </section>
 
 <!-- RSVP -->
