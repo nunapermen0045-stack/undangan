@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Wedding Of Risma & Nurul</title>
 
-<!-- FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -14,24 +13,24 @@
 html,body{
   margin:0;
   font-family:'Lora',serif;
-  color:#0b4f6c;
   background:#edf6fb;
+  color:#0b4f6c;
   overflow-x:hidden;
 }
 
-/* ===== COVER ===== */
+/* COVER */
 #cover{
   position:fixed;
   inset:0;
-  background:url('assets/cover.jpg') center/cover no-repeat;
+  background:url('cover.jpg') center/cover no-repeat;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   z-index:99;
   transition:opacity 1.2s ease;
 }
 .cover-box{
-  background:rgba(255,255,255,.88);
+  background:rgba(255,255,255,.9);
   padding:42px 34px;
   border-radius:30px;
   text-align:center;
@@ -39,11 +38,9 @@ html,body{
 .cover-box h1{
   font-family:'Playfair Display',serif;
   font-size:36px;
-  margin:10px 0;
 }
 #guestName{font-size:13px;color:#555}
 
-/* BUTTON */
 .btn{
   margin-top:24px;
   padding:13px 38px;
@@ -51,7 +48,6 @@ html,body{
   color:white;
   border-radius:30px;
   text-decoration:none;
-  display:inline-block;
   position:relative;
   overflow:hidden;
 }
@@ -64,10 +60,10 @@ html,body{
 }
 @keyframes shine{to{transform:translateX(200%)}}
 
-/* ===== CONTENT ===== */
+/* CONTENT */
 #content{
   display:none;
-  background:url('assets/content.jpg') center/cover fixed no-repeat;
+  background:url('content.jpg') center/cover fixed no-repeat;
 }
 section{
   padding:70px 18px;
@@ -78,10 +74,10 @@ section{
 section.show{
   opacity:1;
   transform:translateY(0);
-  transition:all .9s ease;
+  transition:.9s ease;
 }
 .card{
-  background:rgba(255,255,255,.94);
+  background:rgba(255,255,255,.95);
   padding:34px 26px;
   border-radius:26px;
   max-width:700px;
@@ -98,8 +94,8 @@ section.show{
 /* COUNTDOWN */
 .countdown{
   display:flex;
-  justify-content:center;
   gap:12px;
+  justify-content:center;
   flex-wrap:wrap;
 }
 .time{
@@ -115,29 +111,23 @@ section.show{
   color:#0b6fae;
 }
 
-/* REKENING */
-.rek{
+/* FLEX */
+.flex{
   display:flex;
   gap:14px;
   align-items:center;
   justify-content:center;
   margin-top:14px;
 }
-.rek i{font-size:26px;color:#0b6fae}
+.flex i{font-size:26px;color:#0b6fae}
 
-/* FORM */
-input,select,textarea,button{
-  width:100%;
-  padding:12px;
-  border-radius:14px;
-  border:1px solid #ccc;
-  margin:6px 0;
-  font-family:'Lora';
-}
-button{
+.copy-btn{
+  margin-top:12px;
+  padding:10px 22px;
+  border-radius:22px;
+  border:none;
   background:#0b6fae;
   color:white;
-  border:none;
 }
 </style>
 </head>
@@ -165,10 +155,6 @@ button{
 <section>
   <div class="card">
     <p><b>Assalamu'alaikum Warahmatullahi Wabarakatuh</b></p>
-    <p style="line-height:1.7;margin-top:14px">
-      Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.
-      Dengan memohon ridho-Nya kami bermaksud melangsungkan pernikahan:
-    </p>
 
     <div class="nama">Kharisma Maharani Wijanarko</div>
     <p>Putri pertama Bapak Joko Krisno Juwito<br>dan Ibu Alfiani</p>
@@ -184,15 +170,15 @@ button{
 <section>
   <div class="card">
     <h3>Akad Nikah</h3>
-    <p>Minggu, 20 Juli 2026<br>08.00 WIB</p>
-    <p>Jl. Mawar No. 10, Jakarta</p>
+    <p>Senin Kliwon, 02 Februari 2026<br>09.00 WIB</p>
+    <p>Kediaman Mempelai Wanita</p>
   </div>
 </section>
 
 <!-- SISIPAN -->
 <section>
   <div class="card">
-    <p style="line-height:1.7">
+    <p>
       Dengan memohon limpahan Rahmat dan Ridho Allah SWT,
       kami bermaksud menyelenggarakan Resepsi Pernikahan
       yang akan dilaksanakan pada tanggal :
@@ -204,9 +190,8 @@ button{
 <section>
   <div class="card">
     <h3>Resepsi Pernikahan</h3>
-    <p>Minggu, 20 Juli 2026<br>11.00 WIB – Selesai</p>
-    <p>Jl. Mawar No. 10, Jakarta</p>
-    <p style="margin-top:10px;font-style:italic">Hiburan: Organ Tunggal</p>
+    <p>Senin Kliwon, 02 Februari 2026<br>10.00 WIB – Selesai</p>
+    <p>Hiburan: Organ Tunggal</p>
   </div>
 </section>
 
@@ -221,41 +206,46 @@ button{
   </div>
 </section>
 
-<!-- REKENING -->
+<!-- KIRIM KADO -->
 <section>
-  <h3>Amplop Digital</h3>
+  <h3><i class="fa-solid fa-gift"></i> Kirim Kado</h3>
   <div class="card">
-    <div class="rek">
-      <i class="fa-solid fa-credit-card"></i>
-      <div>
-        <b>BCA</b><br>1234567890<br>a.n. Kharisma Maharani Wijanarko
-      </div>
-    </div>
-    <div class="rek">
-      <i class="fa-solid fa-credit-card"></i>
-      <div>
-        <b>BCA</b><br>0987654321<br>a.n. Muhamad Nurul Arifin
-      </div>
-    </div>
+    <p id="alamatKado">
+      Kris Cell, depan Masjid Almuttaqin<br>
+      Nglobo RT 03 RW 02<br>
+      Kec. Jiken, Kab. Blora
+    </p>
+    <button class="copy-btn" onclick="copyAlamat()">Salin Alamat</button>
+
+    <iframe
+      src="https://www.google.com/maps?q=Kris+Cell+Masjid+Almuttaqin+Nglobo+Jiken+Blora&output=embed"
+      width="100%" height="240"
+      style="border:0;border-radius:18px"
+      loading="lazy">
+    </iframe>
   </div>
 </section>
 
-<!-- LOKASI -->
+<!-- LOKASI ACARA -->
 <section>
   <h3>Lokasi Acara</h3>
-  <iframe src="https://www.google.com/maps?q=Jl+Mawar+No+10+Jakarta&output=embed"
-  width="100%" height="280" style="border-radius:18px;border:0"></iframe>
+  <iframe
+    src="https://www.google.com/maps?q=Masjid+Almuttaqin+Nglobo+Jiken+Blora&output=embed"
+    width="100%" height="280"
+    style="border-radius:18px;border:0"
+    loading="lazy">
+  </iframe>
 </section>
 
 <!-- PENUTUP -->
 <section>
   <div class="card">
     <p>
-      We are so excited to have you join us on our spesial day.
-      We'd love nothing more than to have you celebrate this day with us.
+      Merupakan suatu kehormatan dan kebahagiaan bagi kami
+      apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
     </p>
     <p style="margin-top:18px;font-style:italic">Kami yang berbahagia</p>
-    <p style="font-weight:bold;margin-top:6px">Risma & Nurul</p>
+    <p style="font-weight:bold">Risma & Nurul</p>
   </div>
 </section>
 
@@ -263,9 +253,7 @@ button{
 
 <script>
 const qs=e=>document.querySelector(e);
-const cover=qs('#cover');
-const content=qs('#content');
-const music=qs('#music');
+const cover=qs('#cover'), content=qs('#content'), music=qs('#music');
 
 /* Nama tamu */
 const p=new URLSearchParams(location.search);
@@ -280,28 +268,36 @@ qs('#openBtn').onclick=e=>{
     content.style.display='block';
     document.body.style.overflow='auto';
     music.play().catch(()=>{});
-    observe();
+    animate();
   },1200);
 };
 
-/* Animasi scroll */
-function observe(){
-  const obs=new IntersectionObserver(e=>{
+/* Animasi */
+function animate(){
+  const o=new IntersectionObserver(e=>{
     e.forEach(x=>x.isIntersecting&&x.target.classList.add('show'));
   },{threshold:.2});
-  document.querySelectorAll('section').forEach(s=>obs.observe(s));
+  document.querySelectorAll('section').forEach(s=>o.observe(s));
 }
 
 /* Countdown */
-const target=new Date("July 20, 2026 08:00").getTime();
+const t=new Date("February 02, 2026 09:00").getTime();
 setInterval(()=>{
-  const t=target-new Date().getTime();
-  if(t<0)return;
-  d.innerText=Math.floor(t/86400000);
-  h.innerText=Math.floor(t%86400000/3600000);
-  m.innerText=Math.floor(t%3600000/60000);
-  s.innerText=Math.floor(t%60000/1000);
+  const x=t-new Date().getTime();
+  if(x<0)return;
+  d.innerText=Math.floor(x/86400000);
+  h.innerText=Math.floor(x%86400000/3600000);
+  m.innerText=Math.floor(x%3600000/60000);
+  s.innerText=Math.floor(x%60000/1000);
 },1000);
+
+/* Copy alamat */
+function copyAlamat(){
+  navigator.clipboard.writeText(
+    "Kris Cell, depan Masjid Almuttaqin, Nglobo RT 03 RW 02, Kec. Jiken, Kab. Blora"
+  );
+  alert("Alamat kado berhasil disalin");
+}
 </script>
 
 </body>
