@@ -3,80 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Wedding</title>
+<title>The Wedding of Risma & Nurul</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:url('content.jpg') center/cover fixed;
+  background:url('content.jpg') center/cover fixed no-repeat;
   color:#033e6b;
 }
 
-/* COVER */
 .cover{
   min-height:100vh;
-  background:url('cover.jpg') center/cover;
+  background:url('cover.jpg') center/cover no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
 }
-.cover-box{
-  background:rgba(255,255,255,.75);
-  padding:40px 25px;
-  border-radius:20px;
+
+.box{
+  background:rgba(255,255,255,.8);
+  padding:40px 30px;
+  border-radius:22px;
+  max-width:90%;
 }
 
-/* ANIMASI TEKS */
-.fade-text span{
-  opacity:0;
-  display:inline-block;
-  animation:fadeIn 0.6s forwards;
-}
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(10px);}
-  to{opacity:1; transform:translateY(0);}
+section{padding:80px 20px;text-align:center}
+
+.card{
+  background:rgba(255,255,255,.88);
+  padding:35px;
+  border-radius:22px;
+  max-width:650px;
+  margin:20px auto;
 }
 
-/* BUTTON */
+h1,h2{font-family:'Playfair Display',serif}
+
 .btn{
-  margin-top:20px;
   display:inline-block;
-  padding:12px 30px;
+  margin-top:20px;
+  padding:12px 34px;
   background:#0a6ebd;
   color:white;
   border-radius:30px;
   text-decoration:none;
 }
 
-/* SECTION */
-section{
-  padding:70px 20px;
-  text-align:center;
+/* Animasi teks */
+.animate span{
+  opacity:0;
+  display:inline-block;
+  animation:fadeUp .6s forwards;
 }
-.card{
-  background:rgba(255,255,255,.85);
-  padding:30px;
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:12px;
+  border:1px solid #ccc;
+}
+button{
+  width:100%;
+  padding:12px;
+  background:#0a6ebd;
+  color:white;
+  border:none;
   border-radius:20px;
-  max-width:600px;
-  margin:20px auto;
-}
-h1,h2{
-  font-family:'Playfair Display',serif;
 }
 </style>
 </head>
 
 <body>
 
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2023/03/28/audio_3f5a7d3b48.mp3">
+</audio>
+
 <!-- COVER -->
 <div class="cover">
-  <div class="cover-box">
-    <div class="fade-text" id="judul"></div>
+  <div class="box">
+    <p>THE WEDDING OF</p>
+    <h1 class="animate" id="coverText"></h1>
     <a href="#isi" class="btn">Buka Undangan</a>
   </div>
 </div>
@@ -87,26 +104,99 @@ h1,h2{
     <h2>Assalamu’alaikum Wr. Wb.</h2>
     <p>Dengan memohon rahmat Allah SWT,<br>
     kami mengundang Bapak/Ibu/Saudara/i<br>
-    untuk hadir pada acara pernikahan kami</p>
-
-    <h1 class="fade-text" id="nama"></h1>
+    untuk menghadiri pernikahan kami</p>
+    <h1 class="animate" id="namaText"></h1>
   </div>
 </section>
 
+<!-- COUNTDOWN -->
+<section>
+  <h2>Menuju Hari Bahagia</h2>
+  <div id="countdown"></div>
+</section>
+
+<!-- ACARA -->
+<section>
+  <div class="card">
+    <h2>Akad Nikah</h2>
+    <p>Minggu, 20 Juli 2026<br>08.00 WIB</p>
+    <h2>Resepsi</h2>
+    <p>Minggu, 20 Juli 2026<br>10.00 WIB</p>
+  </div>
+</section>
+
+<!-- MAPS -->
+<section>
+  <h2>Lokasi Acara</h2>
+  <iframe src="https://www.google.com/maps?q=masjid+indonesia&output=embed"
+  width="100%" height="300" style="border-radius:20px;border:0"></iframe>
+</section>
+
+<!-- AMPL0P -->
+<section>
+  <h2>Amplop Digital</h2>
+  <div class="card">
+    <p><b>BCA</b></p>
+    <p>1234567890</p>
+    <p>a.n. Risma</p>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section>
+  <h2>Konfirmasi Kehadiran</h2>
+  <div class="card">
+    <input id="nama" placeholder="Nama">
+    <select id="status">
+      <option>Hadir</option>
+      <option>Tidak Hadir</option>
+    </select>
+    <textarea id="pesan" placeholder="Ucapan & Doa"></textarea>
+    <button onclick="kirim()">Kirim</button>
+  </div>
+</section>
+
+<!-- UCAPAN -->
+<section>
+  <h2>Ucapan & Doa</h2>
+  <div id="list"></div>
+</section>
+
 <script>
-function animateText(id,text){
+function anim(id,text){
   const el=document.getElementById(id);
-  el.innerHTML='';
-  text.split('').forEach((char,i)=>{
-    const span=document.createElement('span');
-    span.textContent=char;
-    span.style.animationDelay=`${i*0.08}s`;
-    el.appendChild(span);
+  el.innerHTML="";
+  text.split("").forEach((c,i)=>{
+    const s=document.createElement("span");
+    s.textContent=c===" "?"\u00A0":c;
+    s.style.animationDelay=`${i*0.08}s`;
+    el.appendChild(s);
   });
 }
+anim("coverText","Risma & Nurul");
+anim("namaText","Risma & Nurul");
 
-animateText("judul","Risma & Nurul");
-animateText("nama","Risma & Nurul");
+/* Countdown */
+const target=new Date("July 20, 2026 08:00").getTime();
+setInterval(()=>{
+  const now=new Date().getTime();
+  const d=target-now;
+  if(d<0)return;
+  document.getElementById("countdown").innerHTML=
+  `${Math.floor(d/86400000)} hari
+   ${Math.floor(d%86400000/3600000)} jam
+   ${Math.floor(d%3600000/60000)} menit`;
+},1000);
+
+/* RSVP */
+function kirim(){
+  if(!nama.value||!pesan.value)return alert("Lengkapi data");
+  const d=document.createElement("div");
+  d.className="card";
+  d.innerHTML=`<b>${nama.value}</b><br>${pesan.value}<br><small>${status.value}</small>`;
+  document.getElementById("list").prepend(d);
+  nama.value=pesan.value="";
+}
 </script>
 
 </body>
