@@ -17,10 +17,7 @@ html,body{
   color:#0b4f6c;
   overflow-x:hidden;
   scroll-behavior:smooth;
-  height:100%;
 }
-
-/* COVER */
 #cover{
   position:fixed; inset:0;
   background:url('cover.jpg') center/cover no-repeat;
@@ -47,20 +44,7 @@ html,body{
   animation:shine 2.5s infinite
 }
 @keyframes shine{to{transform:translateX(200%)}}
-
-/* === BACKGROUND CONTENT FULLSCREEN TENGAH TANPA ZOOM === */
-#content{
-  display:none;
-  position:fixed;
-  inset:0; /* full screen */
-  background: url('content.jpg') center center no-repeat; /* gambar di tengah */
-  background-size: auto; /* TIDAK ngezoom */
-  background-color: #edf6fb; /* fallback warna */
-  z-index:-1; /* konten di atas background */
-  overflow-y:auto; /* scroll konten tetap jalan */
-}
-
-/* SECTION */
+#content{display:none;background:url('content.jpg') center/cover fixed no-repeat}
 section{
   padding:20px 18px;text-align:center;
   opacity:0;transform:translateY(35px)
@@ -103,10 +87,12 @@ section.show{opacity:1;transform:none;transition:.9s ease}
 }
 #scrollProgress{width:100%;height:0%;background:#0b6fae;border-radius:4px}
 
-/* AREA MEMPELAI */
+/* === AREA MEMPELAI === */
 .bride-groom{
   padding:42px 28px;
 }
+
+/* NAMA MEMPELAI */
 .nama.utama{
   font-family:'Playfair Display',serif;
   font-size:38px;
@@ -116,17 +102,23 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   text-shadow:0 6px 18px rgba(11,79,108,.25);
   margin:18px 0 10px;
 }
+
+/* TEKS ORANG TUA */
 .ortu{
   font-size:13px;
   color:#4a6b7c;
   letter-spacing:.3px;
   margin:0 0 8px;
 }
+
+/* ALAMAT */
 .alamat{
   font-size:13px;
   color:#5f7f90;
   margin-bottom:20px;
 }
+
+/* KATA "DENGAN" */
 .dengan{
   font-family:'Playfair Display',serif;
   font-size:22px;
@@ -136,6 +128,7 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   position:relative;
   color:#0b6fae;
 }
+
 .dengan::before,
 .dengan::after{
   content:"";
@@ -145,10 +138,12 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   background:linear-gradient(to right, transparent, #0b6fae, transparent);
   margin:10px auto;
 }
+/* MEMPELAI AMAN TANPA BUG */
 .bride-groom *{
   opacity:1 !important;
   transform:none !important;
 }
+
 
 #toast{
   position:fixed;
@@ -175,6 +170,7 @@ section.show{opacity:1;transform:none;transition:.9s ease}
 
 </style>
 </head>
+
 <body>
 
 <!-- COVER -->
@@ -194,21 +190,44 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   <source src="music.mp3">
 </audio>
 
+<!-- PEMBUKA -->
 <section><div class="card"><p><b>Assalamu'alaikum Warahmatullahi Wabarakatuh</b></p></div></section>
 
 <section><div class="card"><p>Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan. Maka dengan izin Allah perkenankanlah pernikahan kami :</p></div></section>
 
 <section class="show">
   <div class="card bride-groom">
-    <div class="nama utama">Kharisma Maharani Wijanarko</div>
-    <p class="ortu">Putri pertama Bapak Joko Krisno Juwito<br>dan Ibu Alfiani</p>
-    <p class="alamat">Desa Nglobo RT 03 RW 02<br>Depan Masjid Almuttaqin Nglobo</p>
+
+    <div class="nama utama">
+      Kharisma Maharani Wijanarko
+    </div>
+
+    <p class="ortu">
+      Putri pertama Bapak Joko Krisno Juwito<br>
+      dan Ibu Alfiani
+    </p>
+
+    <p class="alamat">
+      Desa Nglobo RT 03 RW 02<br>
+      Depan Masjid Almuttaqin Nglobo
+    </p>
 
     <div class="dengan">Dengan</div>
 
-    <div class="nama utama">Muhamad Nurul Arifin</div>
-    <p class="ortu">Putra pertama Bapak Sulimin<br>dan Ibu Sayuti</p>
-    <p class="alamat">Dk Cerme Desa Tobo RT 03 RW 01<br>Kec Jati Kab Blora</p>
+    <div class="nama utama">
+      Muhamad Nurul Arifin
+    </div>
+
+    <p class="ortu">
+      Putra pertama Bapak Sulimin<br>
+      dan Ibu Sayuti
+    </p>
+
+    <p class="alamat">
+      Dk Cerme Desa Tobo RT 03 RW 01<br>
+      Kec Jati Kab Blora
+    </p>
+
   </div>
 </section>
 
@@ -235,9 +254,9 @@ section.show{opacity:1;transform:none;transition:.9s ease}
 <div class="card">
 <form id="rsvpForm">
 <input id="rsvpNama" readonly
-  style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
+ style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
 <select id="rsvpStatus" required
-  style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
+ style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
 <option value="">-- Konfirmasi kehadiran --</option>
 <option>Hadir</option>
 <option>Tidak Hadir</option>
@@ -301,10 +320,10 @@ section.show{opacity:1;transform:none;transition:.9s ease}
 <h3>Generator Link Tamu</h3>
 <div class="card">
 <input id="namaTamuInput" placeholder="Nama Tamu"
-  style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc">
+ style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc">
 <button onclick="buatLink()" class="btn" style="width:100%">Buat Link</button>
 <input id="hasilLink" readonly
-  style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-top:12px">
+ style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-top:12px">
 </div>
 </section>
 
