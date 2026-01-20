@@ -18,20 +18,25 @@ html,body{
   overflow-x:hidden;
   scroll-behavior:smooth;
 }
+
+/* COVER */
 #cover{
   position:fixed; inset:0;
   background:url('cover.jpg') center/cover no-repeat;
   display:flex; justify-content:center; align-items:center;
-  z-index:99; transition:opacity 1.2s ease;
+  z-index:99; transition:opacity 1s ease, filter 1s ease;
 }
 .cover-box{
   background:rgba(255,255,255,.92);
   padding:42px 34px;
   border-radius:30px;
   text-align:center;
+  transition: transform 1s ease, opacity 1s ease;
 }
 .cover-box h1{font-family:'Playfair Display',serif;font-size:36px}
 #guestName{font-size:13px;color:#555}
+
+/* BUTTON */
 .btn{
   margin-top:24px;padding:13px 38px;
   background:#0b6fae;color:white;
@@ -44,7 +49,15 @@ html,body{
   animation:shine 2.5s infinite
 }
 @keyframes shine{to{transform:translateX(200%)}}
-#content{display:none;background:url('content.jpg') center/cover fixed no-repeat}
+
+/* CONTENT */
+#content{
+  display:none;
+  background: url('content.jpg') center/cover no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 section{
   padding:20px 18px;text-align:center;
   opacity:0;transform:translateY(35px)
@@ -67,6 +80,8 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   border-radius:22px;border:none;
   background:#0b6fae;color:white
 }
+
+/* MUSIC BTN */
 #musicBtn{
   position:fixed;right:18px;bottom:24px;
   width:54px;height:54px;
@@ -78,6 +93,8 @@ section.show{opacity:1;transform:none;transition:.9s ease}
 }
 #musicBtn.paused{animation:none;opacity:.7}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+/* SCROLL */
 #scrollBar{
   position:fixed;right:8px;top:50%;
   transform:translateY(-50%);
@@ -87,12 +104,10 @@ section.show{opacity:1;transform:none;transition:.9s ease}
 }
 #scrollProgress{width:100%;height:0%;background:#0b6fae;border-radius:4px}
 
-/* === AREA MEMPELAI === */
+/* AREA MEMPELAI */
 .bride-groom{
   padding:42px 28px;
 }
-
-/* NAMA MEMPELAI */
 .nama.utama{
   font-family:'Playfair Display',serif;
   font-size:38px;
@@ -102,23 +117,17 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   text-shadow:0 6px 18px rgba(11,79,108,.25);
   margin:18px 0 10px;
 }
-
-/* TEKS ORANG TUA */
 .ortu{
   font-size:13px;
   color:#4a6b7c;
   letter-spacing:.3px;
   margin:0 0 8px;
 }
-
-/* ALAMAT */
 .alamat{
   font-size:13px;
   color:#5f7f90;
   margin-bottom:20px;
 }
-
-/* KATA "DENGAN" */
 .dengan{
   font-family:'Playfair Display',serif;
   font-size:22px;
@@ -128,7 +137,6 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   position:relative;
   color:#0b6fae;
 }
-
 .dengan::before,
 .dengan::after{
   content:"";
@@ -138,7 +146,6 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   background:linear-gradient(to right, transparent, #0b6fae, transparent);
   margin:10px auto;
 }
-/* MEMPELAI AMAN TANPA BUG */
 .bride-groom *{
   opacity:1 !important;
   transform:none !important;
@@ -168,7 +175,7 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   bottom:50px;
 }
 
-/* === KOTAK TEKS TRANSPARAN === */
+/* KOTAK TEKS TRANSPARAN */
 input, textarea, select {
   background: rgba(255,255,255,0.6);
   border: 1px solid #ccc;
@@ -181,6 +188,7 @@ input, textarea, select {
 input:hover, textarea:hover, select:hover {
   background: rgba(255,255,255,0.8);
 }
+
 </style>
 </head>
 
@@ -250,7 +258,6 @@ input:hover, textarea:hover, select:hover {
 
 <section><div class="card"><h3>Resepsi Pernikahan</h3><p>Senin Kliwon, 02 Februari 2026<br>10.00 WIB – Selesai</p><p>Hiburan: Organ Tunggal</p></div></section>
 
-<!-- COUNTDOWN -->
 <section>
 <h3>Menuju Hari Bahagia</h3>
 <div class="countdown">
@@ -261,7 +268,6 @@ input:hover, textarea:hover, select:hover {
 </div>
 </section>
 
-<!-- RSVP -->
 <section>
 <h3>Konfirmasi Kehadiran</h3>
 <div class="card">
@@ -274,18 +280,13 @@ input:hover, textarea:hover, select:hover {
 </select>
 <textarea id="rsvpPesan" placeholder="Ucapan & Doa" style="width:100%;height:90px"></textarea>
 
-      <button type="submit" class="copy-btn" style="width:100%;margin-top:10px">
-        Kirim RSVP
-      </button>
-    </form>
+<button type="submit" class="copy-btn" style="width:100%;margin-top:10px">Kirim RSVP</button>
+</form>
 
-    <p id="rsvpNotif" style="display:none;margin-top:12px">
-      Terima kasih atas konfirmasi Anda 🤍
-    </p>
+<p id="rsvpNotif" style="display:none;margin-top:12px">Terima kasih atas konfirmasi Anda 🤍</p>
 </div>
 </section>
 
-<!-- KADO -->
 <section>
 <h3><i class="fa-solid fa-gift"></i> Bagi yang ingin mengirim kan kado bisa ke alamat berikut ini</h3>
 <div class="card">
@@ -295,7 +296,6 @@ input:hover, textarea:hover, select:hover {
 </div>
 </section>
 
-<!-- ANGPAO DIGITAL -->
 <section>
 <h3><i class="fa-solid fa-building-columns"></i> Angpao Digital</h3>
 <div class="card">
@@ -309,7 +309,6 @@ input:hover, textarea:hover, select:hover {
 </div>
 </section>
 
-<!-- LOKASI -->
 <section>
 <h3>Lokasi Acara</h3>
 <div class="card">
@@ -325,7 +324,6 @@ input:hover, textarea:hover, select:hover {
 </div>
 </section>
 
-<!-- GENERATOR (ADMIN ONLY) -->
 <section id="generator" style="display:none">
 <h3>Generator Link Tamu</h3>
 <div class="card">
@@ -358,10 +356,13 @@ qs('#rsvpNama').value=decodeURIComponent(tamu);
 /* Admin only */
 if(params.get('admin')==="1") qs('#generator').style.display="block";
 
-/* Open */
+/* Open - Cover fade + blur effect */
 qs('#openBtn').onclick=e=>{
 e.preventDefault();
+cover.style.filter='blur(4px)';
 cover.style.opacity=0;
+cover.querySelector('.cover-box').style.transform='scale(0.8)';
+cover.querySelector('.cover-box').style.opacity=0;
 setTimeout(()=>{
 cover.style.display='none';
 content.style.display='block';
@@ -370,7 +371,7 @@ animate();
 },1200);
 };
 
-/* Animasi */
+/* Animasi section */
 function animate(){
 const io=new IntersectionObserver(e=>{
 e.forEach(x=>x.isIntersecting&&x.target.classList.add('show'));
@@ -431,7 +432,6 @@ function showToast(text){
     toast.classList.remove('show');
   }, 2000);
 }
-
 </script>
 </body>
 </html>
