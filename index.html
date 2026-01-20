@@ -225,6 +225,10 @@ section.show{opacity:1;transform:none;transition:.9s ease}
 
 <div id="musicBtn" class="paused"><i class="fa-solid fa-music"></i></div>
 <div id="scrollBar"><div id="scrollProgress"></div></div>
+<div id="toast">
+  <i class="fa-solid fa-circle-check"></i>
+  <span id="toastText">Berhasil disalin</span>
+</div>
 
 <script>
 const qs=e=>document.querySelector(e);
@@ -296,14 +300,24 @@ function copyAlamat(){
   navigator.clipboard.writeText(
     "Kris Cell, depan Masjid Almuttaqin, Nglobo RT 03 RW 02, Kec. Jiken, Kab. Blora"
   );
-  alert("Alamat kado berhasil disalin ✔");
+  showToast("Alamat kado berhasil disalin");
 }
 
 /* COPY REKENING */
 function copyText(t){
   navigator.clipboard.writeText(t);
-  alert("Berhasil disalin ✔");
+  showToast("Berhasil disalin");
 }
+
+function showToast(text){
+  const toast = document.getElementById('toast');
+  document.getElementById('toastText').innerText = text;
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2000);
+}
+
 </script>
 </body>
 </html>
