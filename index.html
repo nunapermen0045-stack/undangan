@@ -112,10 +112,37 @@ section.show{opacity:1;transform:none;transition:.9s ease}
 /* COUNTDOWN */
 .countdown{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .time{
-  background:white;width:80px;padding:14px;
+  background: rgba(255,255,255,0.92); /* sedikit transparan */
+  width:80px;padding:14px;
   border-radius:16px;box-shadow:0 8px 18px rgba(0,0,0,.15)
 }
 .time span{font-size:24px;font-weight:600;color:#0b6fae}
+
+/* FORM DAN ANGPAO */
+#rsvpForm input,
+#rsvpForm select,
+#rsvpForm textarea,
+.copy-btn,
+.card iframe,
+.card p{
+  background: rgba(255, 255, 255, 0.92); /* sedikit transparan */
+}
+
+/* BUTTON */
+.copy-btn {
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  border:none;
+  border-radius:12px;
+  padding:12px;
+  width:100%;
+  color:#0b4f6c;
+}
+.copy-btn:hover {
+  background: rgba(11, 111, 174, 0.95);
+  transform: translateY(-2px);
+  color:white;
+}
 
 /* TOAST */
 #toast{
@@ -163,30 +190,6 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   border-radius:4px;z-index:40
 }
 #scrollProgress{width:100%;height:0%;background:#0b6fae;border-radius:4px}
-
-/* ==== FORM DAN BUTTON SEDIKIT TRANSPARAN ==== */
-#rsvpForm input,
-#rsvpForm select,
-#rsvpForm textarea,
-.copy-btn {
-  background: rgba(255, 255, 255, 0.92); /* sedikit transparan */
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  padding: 12px;
-  width: 100%;
-  color: #0b4f6c;
-}
-
-.copy-btn {
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.copy-btn:hover {
-  background: rgba(11, 111, 174, 0.95);
-  transform: translateY(-2px);
-  color: white;
-}
 </style>
 </head>
 
@@ -301,18 +304,6 @@ section.show{opacity:1;transform:none;transition:.9s ease}
 </div>
 </section>
 
-<!-- GENERATOR (ADMIN ONLY) -->
-<section id="generator" style="display:none">
-<h3>Generator Link Tamu</h3>
-<div class="card">
-<input id="namaTamuInput" placeholder="Nama Tamu">
-<button onclick="buatLink()" class="btn" style="width:100%">Buat Link</button>
-<input id="hasilLink" readonly style="width:100%;margin-top:12px">
-</div>
-</section>
-
-</div>
-
 <div id="musicBtn" class="paused"><i class="fa-solid fa-music"></i></div>
 <div id="scrollBar"><div id="scrollProgress"></div></div>
 <div id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastText">Berhasil disalin</span></div>
@@ -327,9 +318,6 @@ const params=new URLSearchParams(location.search);
 const tamu=params.get('to')||"Tamu Undangan";
 qs('#guestName').innerHTML=`Kepada Yth.<br><b>${decodeURIComponent(tamu)}</b>`;
 qs('#rsvpNama').value=decodeURIComponent(tamu);
-
-/* Admin only */
-if(params.get('admin')==="1") qs('#generator').style.display="block";
 
 /* Open */
 qs('#openBtn').onclick=e=>{
@@ -361,14 +349,6 @@ qs('#h').innerText=Math.floor(diff%86400000/3600000);
 qs('#m').innerText=Math.floor(diff%3600000/60000);
 qs('#s').innerText=Math.floor(diff%60000/1000);
 },1000);
-
-/* Generator */
-function buatLink(){
-const n=qs('#namaTamuInput').value.trim();
-if(!n)return alert("Isi nama tamu");
-qs('#hasilLink').value=
-location.origin+location.pathname+"?to="+encodeURIComponent(n);
-}
 
 /* Music */
 musicBtn.onclick=()=>{
