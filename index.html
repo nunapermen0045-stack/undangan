@@ -24,7 +24,8 @@ html,body{
   position:fixed; inset:0;
   background:url('cover.jpg') center/cover no-repeat;
   display:flex; justify-content:center; align-items:center;
-  z-index:99; transition:opacity 1s ease, filter 1s ease;
+  z-index:99;
+  transition:opacity 1s ease, filter 1s ease;
 }
 .cover-box{
   background:rgba(255,255,255,.92);
@@ -53,10 +54,7 @@ html,body{
 /* CONTENT */
 #content{
   display:none;
-  background: url('content.jpg') center/cover no-repeat;
-  background-attachment: scroll; /* Kembali ke default agar tampilan seperti awal */
-  background-size: cover;
-  background-position: center;
+  background: url('content.jpg') center; /* KEMBALI KE AWAL */
 }
 
 section{
@@ -212,7 +210,7 @@ input:hover, textarea:hover, select:hover {
   <source src="music.mp3">
 </audio>
 
-<!-- PEMBUKA -->
+<!-- SEMUA SECTION LENGKAP START -->
 <section><div class="card"><p><b>Assalamu'alaikum Warahmatullahi Wabarakatuh</b></p></div></section>
 
 <section><div class="card"><p>Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan. Maka dengan izin Allah perkenankanlah pernikahan kami :</p></div></section>
@@ -333,6 +331,8 @@ input:hover, textarea:hover, select:hover {
 <input id="hasilLink" readonly style="width:100%;margin-top:12px">
 </div>
 </section>
+
+<!-- SEMUA SECTION LENGKAP END -->
 
 </div>
 
