@@ -138,23 +138,12 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   background:linear-gradient(to right, transparent, #0b6fae, transparent);
   margin:10px auto;
 }
-/* === FADE KHUSUS MEMPELAI === */
-.fade-bride .fade-item{
-  opacity:0;
-  transform:translateY(25px);
-  transition:opacity 1.4s ease, transform 1.4s ease;
+/* MEMPELAI AMAN TANPA BUG */
+.bride-groom *{
+  opacity:1 !important;
+  transform:none !important;
 }
 
-section.show .fade-bride .fade-item{
-  opacity:1;
-  transform:none;
-}
-section.show .fade-bride .delay-1{
-  transition-delay:.4s;
-}
-section.show .fade-bride .delay-2{
-  transition-delay:.8s;
-}
 
 #toast{
   position:fixed;
@@ -206,41 +195,41 @@ section.show .fade-bride .delay-2{
 
 <section><div class="card"><p>Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan. Maka dengan izin Allah perkenankanlah pernikahan kami :</p></div></section>
 
-<section>
- <div class="card bride-groom fade-bride">
+<section class="show">
+  <div class="card bride-groom">
 
-  <div class="nama utama fade-item">
-    Kharisma Maharani Wijanarko
+    <div class="nama utama">
+      Kharisma Maharani Wijanarko
+    </div>
+
+    <p class="ortu">
+      Putri pertama Bapak Joko Krisno Juwito<br>
+      dan Ibu Alfiani
+    </p>
+
+    <p class="alamat">
+      Desa Nglobo RT 03 RW 02<br>
+      Depan Masjid Almuttaqin Nglobo
+    </p>
+
+    <div class="dengan">Dengan</div>
+
+    <div class="nama utama">
+      Muhamad Nurul Arifin
+    </div>
+
+    <p class="ortu">
+      Putra pertama Bapak Sulimin<br>
+      dan Ibu Sayuti
+    </p>
+
+    <p class="alamat">
+      Dk Cerme Desa Tobo RT 03 RW 01<br>
+      Kec Jati Kab Blora
+    </p>
+
   </div>
-
-  <p class="ortu fade-item">
-    Putri pertama Bapak Joko Krisno Juwito<br>
-    dan Ibu Alfiani
-  </p>
-
-  <p class="alamat fade-item">
-    Desa Nglobo RT 03 RW 02<br>
-    Depan Masjid Almuttaqin Nglobo
-  </p>
-
-  <div class="dengan fade-item delay-1">Dengan</div>
-
-  <div class="nama utama fade-item delay-2">
-    Muhamad Nurul Arifin
-  </div>
-
-  <p class="ortu fade-item">
-    Putra pertama Bapak Sulimin<br>
-    dan Ibu Sayuti
-  </p>
-
-  <p class="alamat fade-item">
-    Dk Cerme Desa Tobo RT 03 RW 01<br>
-    Kec Jati Kab Blora
-  </p>
-</div>
 </section>
-
 
 <section><div class="card"><h3>Akad Nikah</h3><p>Senin Kliwon, 02 Februari 2026<br>09.00 WIB</p><p>Kediaman Mempelai Wanita</p></div></section>
 
