@@ -290,7 +290,20 @@ window.addEventListener('scroll',()=>{
 const h=document.documentElement.scrollHeight-innerHeight;
 qs('#scrollProgress').style.height=(scrollY/h)*100+"%";
 });
-</script>
 
+/* COPY ALAMAT */
+function copyAlamat(){
+  navigator.clipboard.writeText(
+    "Kris Cell, depan Masjid Almuttaqin, Nglobo RT 03 RW 02, Kec. Jiken, Kab. Blora"
+  );
+  alert("Alamat kado berhasil disalin ✔");
+}
+
+/* COPY REKENING */
+function copyText(t){
+  navigator.clipboard.writeText(t);
+  alert("Berhasil disalin ✔");
+}
+</script>
 </body>
 </html>
