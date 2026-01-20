@@ -13,31 +13,25 @@
 html,body{
   margin:0;
   font-family:'Lora',serif;
-  background: url('content.jpg') center/cover no-repeat; /* BACKGROUND STABIL */
+  background:#edf6fb;
   color:#0b4f6c;
   overflow-x:hidden;
   scroll-behavior:smooth;
 }
-
-/* COVER */
 #cover{
   position:fixed; inset:0;
   background:url('cover.jpg') center/cover no-repeat;
   display:flex; justify-content:center; align-items:center;
-  z-index:99;
-  transition:opacity 1s ease, filter 1s ease;
+  z-index:99; transition:opacity 1.2s ease;
 }
 .cover-box{
   background:rgba(255,255,255,.92);
   padding:42px 34px;
   border-radius:30px;
   text-align:center;
-  transition: transform 1s ease, opacity 1s ease;
 }
 .cover-box h1{font-family:'Playfair Display',serif;font-size:36px}
 #guestName{font-size:13px;color:#555}
-
-/* BUTTON */
 .btn{
   margin-top:24px;padding:13px 38px;
   background:#0b6fae;color:white;
@@ -50,13 +44,7 @@ html,body{
   animation:shine 2.5s infinite
 }
 @keyframes shine{to{transform:translateX(200%)}}
-
-/* CONTENT */
-#content{
-  display:none;
-}
-
-/* SECTION & CARD */
+#content{display:none;background:url('content.jpg') center/cover fixed no-repeat}
 section{
   padding:20px 18px;text-align:center;
   opacity:0;transform:translateY(35px)
@@ -79,8 +67,6 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   border-radius:22px;border:none;
   background:#0b6fae;color:white
 }
-
-/* MUSIC BTN */
 #musicBtn{
   position:fixed;right:18px;bottom:24px;
   width:54px;height:54px;
@@ -92,8 +78,6 @@ section.show{opacity:1;transform:none;transition:.9s ease}
 }
 #musicBtn.paused{animation:none;opacity:.7}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* SCROLL */
 #scrollBar{
   position:fixed;right:8px;top:50%;
   transform:translateY(-50%);
@@ -103,10 +87,12 @@ section.show{opacity:1;transform:none;transition:.9s ease}
 }
 #scrollProgress{width:100%;height:0%;background:#0b6fae;border-radius:4px}
 
-/* AREA MEMPELAI */
+/* === AREA MEMPELAI === */
 .bride-groom{
   padding:42px 28px;
 }
+
+/* NAMA MEMPELAI */
 .nama.utama{
   font-family:'Playfair Display',serif;
   font-size:38px;
@@ -116,17 +102,23 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   text-shadow:0 6px 18px rgba(11,79,108,.25);
   margin:18px 0 10px;
 }
+
+/* TEKS ORANG TUA */
 .ortu{
   font-size:13px;
   color:#4a6b7c;
   letter-spacing:.3px;
   margin:0 0 8px;
 }
+
+/* ALAMAT */
 .alamat{
   font-size:13px;
   color:#5f7f90;
   margin-bottom:20px;
 }
+
+/* KATA "DENGAN" */
 .dengan{
   font-family:'Playfair Display',serif;
   font-size:22px;
@@ -136,6 +128,7 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   position:relative;
   color:#0b6fae;
 }
+
 .dengan::before,
 .dengan::after{
   content:"";
@@ -145,12 +138,13 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   background:linear-gradient(to right, transparent, #0b6fae, transparent);
   margin:10px auto;
 }
+/* MEMPELAI AMAN TANPA BUG */
 .bride-groom *{
   opacity:1 !important;
   transform:none !important;
 }
 
-/* TOAST */
+
 #toast{
   position:fixed;
   left:50%;
@@ -174,19 +168,6 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   bottom:50px;
 }
 
-/* KOTAK TEKS TRANSPARAN */
-input, textarea, select {
-  background: rgba(255,255,255,0.6);
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  padding: 12px;
-  backdrop-filter: blur(6px);
-  color: #0b4f6c;
-  font-family: 'Lora', serif;
-}
-input:hover, textarea:hover, select:hover {
-  background: rgba(255,255,255,0.8);
-}
 </style>
 </head>
 
@@ -209,23 +190,54 @@ input:hover, textarea:hover, select:hover {
   <source src="music.mp3">
 </audio>
 
-<!-- SEMUA SECTION LENGKAP START -->
+<!-- PEMBUKA -->
 <section><div class="card"><p><b>Assalamu'alaikum Warahmatullahi Wabarakatuh</b></p></div></section>
+
 <section><div class="card"><p>Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan. Maka dengan izin Allah perkenankanlah pernikahan kami :</p></div></section>
+
 <section class="show">
   <div class="card bride-groom">
-    <div class="nama utama">Kharisma Maharani Wijanarko</div>
-    <p class="ortu">Putri pertama Bapak Joko Krisno Juwito<br>dan Ibu Alfiani</p>
-    <p class="alamat">Desa Nglobo RT 03 RW 02<br>Depan Masjid Almuttaqin Nglobo</p>
+
+    <div class="nama utama">
+      Kharisma Maharani Wijanarko
+    </div>
+
+    <p class="ortu">
+      Putri pertama Bapak Joko Krisno Juwito<br>
+      dan Ibu Alfiani
+    </p>
+
+    <p class="alamat">
+      Desa Nglobo RT 03 RW 02<br>
+      Depan Masjid Almuttaqin Nglobo
+    </p>
+
     <div class="dengan">Dengan</div>
-    <div class="nama utama">Muhamad Nurul Arifin</div>
-    <p class="ortu">Putra pertama Bapak Sulimin<br>dan Ibu Sayuti</p>
-    <p class="alamat">Dk Cerme Desa Tobo RT 03 RW 01<br>Kec Jati Kab Blora</p>
+
+    <div class="nama utama">
+      Muhamad Nurul Arifin
+    </div>
+
+    <p class="ortu">
+      Putra pertama Bapak Sulimin<br>
+      dan Ibu Sayuti
+    </p>
+
+    <p class="alamat">
+      Dk Cerme Desa Tobo RT 03 RW 01<br>
+      Kec Jati Kab Blora
+    </p>
+
   </div>
 </section>
+
 <section><div class="card"><h3>Akad Nikah</h3><p>Senin Kliwon, 02 Februari 2026<br>09.00 WIB</p><p>Kediaman Mempelai Wanita</p></div></section>
+
 <section><div class="card"><p>Dengan memohon limpahan Rahmat dan Ridho Allah SWT, kami bermaksud menyelenggarakan Resepsi Pernikahan yang akan dilaksanakan pada tanggal :</p></div></section>
+
 <section><div class="card"><h3>Resepsi Pernikahan</h3><p>Senin Kliwon, 02 Februari 2026<br>10.00 WIB – Selesai</p><p>Hiburan: Organ Tunggal</p></div></section>
+
+<!-- COUNTDOWN -->
 <section>
 <h3>Menuju Hari Bahagia</h3>
 <div class="countdown">
@@ -236,23 +248,34 @@ input:hover, textarea:hover, select:hover {
 </div>
 </section>
 
+<!-- RSVP -->
 <section>
 <h3>Konfirmasi Kehadiran</h3>
 <div class="card">
 <form id="rsvpForm">
-<input id="rsvpNama" readonly style="width:100%;margin-bottom:12px">
-<select id="rsvpStatus" required style="width:100%;margin-bottom:12px">
+<input id="rsvpNama" readonly
+ style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
+<select id="rsvpStatus" required
+ style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
 <option value="">-- Konfirmasi kehadiran --</option>
 <option>Hadir</option>
 <option>Tidak Hadir</option>
 </select>
-<textarea id="rsvpPesan" placeholder="Ucapan & Doa" style="width:100%;height:90px"></textarea>
-<button type="submit" class="copy-btn" style="width:100%;margin-top:10px">Kirim RSVP</button>
-</form>
-<p id="rsvpNotif" style="display:none;margin-top:12px">Terima kasih atas konfirmasi Anda 🤍</p>
+<textarea id="rsvpPesan" placeholder="Ucapan & Doa"
+        style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;height:90px"></textarea>
+
+      <button type="submit" class="copy-btn" style="width:100%;margin-top:10px">
+        Kirim RSVP
+      </button>
+    </form>
+
+    <p id="rsvpNotif" style="display:none;margin-top:12px">
+      Terima kasih atas konfirmasi Anda 🤍
+    </p>
 </div>
 </section>
 
+<!-- KADO -->
 <section>
 <h3><i class="fa-solid fa-gift"></i> Bagi yang ingin mengirim kan kado bisa ke alamat berikut ini</h3>
 <div class="card">
@@ -262,6 +285,7 @@ input:hover, textarea:hover, select:hover {
 </div>
 </section>
 
+<!-- ANGPAO DIGITAL -->
 <section>
 <h3><i class="fa-solid fa-building-columns"></i> Angpao Digital</h3>
 <div class="card">
@@ -275,6 +299,7 @@ input:hover, textarea:hover, select:hover {
 </div>
 </section>
 
+<!-- LOKASI -->
 <section>
 <h3>Lokasi Acara</h3>
 <div class="card">
@@ -290,16 +315,17 @@ input:hover, textarea:hover, select:hover {
 </div>
 </section>
 
+<!-- GENERATOR (ADMIN ONLY) -->
 <section id="generator" style="display:none">
 <h3>Generator Link Tamu</h3>
 <div class="card">
-<input id="namaTamuInput" placeholder="Nama Tamu" style="width:100%;">
+<input id="namaTamuInput" placeholder="Nama Tamu"
+ style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc">
 <button onclick="buatLink()" class="btn" style="width:100%">Buat Link</button>
-<input id="hasilLink" readonly style="width:100%;margin-top:12px">
+<input id="hasilLink" readonly
+ style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-top:12px">
 </div>
 </section>
-
-<!-- SEMUA SECTION LENGKAP END -->
 
 </div>
 
@@ -324,13 +350,10 @@ qs('#rsvpNama').value=decodeURIComponent(tamu);
 /* Admin only */
 if(params.get('admin')==="1") qs('#generator').style.display="block";
 
-/* Open - Cover fade + blur effect */
+/* Open */
 qs('#openBtn').onclick=e=>{
 e.preventDefault();
-cover.style.filter='blur(4px)';
 cover.style.opacity=0;
-cover.querySelector('.cover-box').style.transform='scale(0.8)';
-cover.querySelector('.cover-box').style.opacity=0;
 setTimeout(()=>{
 cover.style.display='none';
 content.style.display='block';
@@ -339,7 +362,7 @@ animate();
 },1200);
 };
 
-/* Animasi section */
+/* Animasi */
 function animate(){
 const io=new IntersectionObserver(e=>{
 e.forEach(x=>x.isIntersecting&&x.target.classList.add('show'));
@@ -400,6 +423,7 @@ function showToast(text){
     toast.classList.remove('show');
   }, 2000);
 }
+
 </script>
 </body>
 </html>
