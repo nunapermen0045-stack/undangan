@@ -86,6 +86,100 @@ section.show{opacity:1;transform:none;transition:.9s ease}
   border-radius:4px;z-index:40
 }
 #scrollProgress{width:100%;height:0%;background:#0b6fae;border-radius:4px}
+
+/* === AREA MEMPELAI === */
+.bride-groom{
+  padding:42px 28px;
+}
+
+/* NAMA MEMPELAI */
+.nama.utama{
+  font-family:'Playfair Display',serif;
+  font-size:38px;
+  font-weight:600;
+  letter-spacing:1px;
+  color:#0b4f6c;
+  text-shadow:0 6px 18px rgba(11,79,108,.25);
+  margin:18px 0 10px;
+}
+
+/* TEKS ORANG TUA */
+.ortu{
+  font-size:13px;
+  color:#4a6b7c;
+  letter-spacing:.3px;
+  margin:0 0 8px;
+}
+
+/* ALAMAT */
+.alamat{
+  font-size:13px;
+  color:#5f7f90;
+  margin-bottom:20px;
+}
+
+/* KATA "DENGAN" */
+.dengan{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  font-style:italic;
+  letter-spacing:3px;
+  margin:30px 0;
+  position:relative;
+  color:#0b6fae;
+}
+
+.dengan::before,
+.dengan::after{
+  content:"";
+  display:block;
+  width:70px;
+  height:1px;
+  background:linear-gradient(to right, transparent, #0b6fae, transparent);
+  margin:10px auto;
+}
+/* === FADE KHUSUS MEMPELAI === */
+.fade-bride .fade-item{
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity 1.4s ease, transform 1.4s ease;
+}
+
+.fade-bride.show .fade-item{
+  opacity:1;
+  transform:none;
+}
+
+/* Delay berurutan */
+.fade-bride.show .delay-1{
+  transition-delay:.4s;
+}
+.fade-bride.show .delay-2{
+  transition-delay:.8s;
+}
+#toast{
+  position:fixed;
+  left:50%;
+  bottom:30px;
+  transform:translateX(-50%);
+  background:#0b6fae;
+  color:white;
+  padding:12px 22px;
+  border-radius:30px;
+  display:flex;
+  gap:8px;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.4s ease;
+  z-index:999;
+  font-size:13px;
+}
+#toast.show{
+  opacity:1;
+  bottom:50px;
+}
+
 </style>
 </head>
 
@@ -114,16 +208,40 @@ section.show{opacity:1;transform:none;transition:.9s ease}
 <section><div class="card"><p>Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan. Maka dengan izin Allah perkenankanlah pernikahan kami :</p></div></section>
 
 <section>
-  <div class="card">
-    <div class="nama">Kharisma Maharani Wijanarko</div>
-    <p>Putri pertama Bapak Joko Krisno Juwito<br>dan Ibu Alfiani</p>
-    <p>Desa Nglobo RT 03 RW 02 Depan Masjid Almuttaqin Nglobo</p>
-    <p style="margin:22px 0;font-style:italic">Dengan</p>
-    <div class="nama">Muhamad Nurul Arifin</div>
-    <p>Putra pertama Bapak Sulimin dan Ibu Sayuti</p>
-    <p>Dk Cerme Desa Tobo RT 03 RW 01 Kec Jati Kab Blora</p>
+ <div class="card bride-groom fade-bride">
+
+  <div class="nama utama fade-item">
+    Kharisma Maharani Wijanarko
   </div>
+
+  <p class="ortu fade-item">
+    Putri pertama Bapak Joko Krisno Juwito<br>
+    dan Ibu Alfiani
+  </p>
+
+  <p class="alamat fade-item">
+    Desa Nglobo RT 03 RW 02<br>
+    Depan Masjid Almuttaqin Nglobo
+  </p>
+
+  <div class="dengan fade-item delay-1">Dengan</div>
+
+  <div class="nama utama fade-item delay-2">
+    Muhamad Nurul Arifin
+  </div>
+
+  <p class="ortu fade-item">
+    Putra pertama Bapak Sulimin<br>
+    dan Ibu Sayuti
+  </p>
+
+  <p class="alamat fade-item">
+    Dk Cerme Desa Tobo RT 03 RW 01<br>
+    Kec Jati Kab Blora
+  </p>
+</div>
 </section>
+
 
 <section><div class="card"><h3>Akad Nikah</h3><p>Senin Kliwon, 02 Februari 2026<br>09.00 WIB</p><p>Kediaman Mempelai Wanita</p></div></section>
 
