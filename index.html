@@ -18,17 +18,11 @@ html,body{
   overflow-x:hidden;
   scroll-behavior:smooth;
 }
-
-/* COVER */
 #cover{
-  position:fixed;
-  inset:0;
+  position:fixed; inset:0;
   background:url('cover.jpg') center/cover no-repeat;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:99;
-  transition:opacity 1.2s ease;
+  display:flex; justify-content:center; align-items:center;
+  z-index:99; transition:opacity 1.2s ease;
 }
 .cover-box{
   background:rgba(255,255,255,.92);
@@ -36,133 +30,62 @@ html,body{
   border-radius:30px;
   text-align:center;
 }
-.cover-box h1{
-  font-family:'Playfair Display',serif;
-  font-size:36px;
-}
+.cover-box h1{font-family:'Playfair Display',serif;font-size:36px}
 #guestName{font-size:13px;color:#555}
-
 .btn{
-  margin-top:24px;
-  padding:13px 38px;
-  background:#0b6fae;
-  color:white;
-  border-radius:30px;
-  text-decoration:none;
-  position:relative;
-  overflow:hidden;
+  margin-top:24px;padding:13px 38px;
+  background:#0b6fae;color:white;
+  border-radius:30px;text-decoration:none;
+  position:relative;overflow:hidden
 }
 .btn::after{
-  content:"";
-  position:absolute;
-  inset:0;
+  content:"";position:absolute;inset:0;
   background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
-  animation:shine 2.5s infinite;
+  animation:shine 2.5s infinite
 }
 @keyframes shine{to{transform:translateX(200%)}}
-
-/* CONTENT */
-#content{
-  display:none;
-  background:url('content.jpg') center/cover fixed no-repeat;
-}
-
-/* SECTION */
+#content{display:none;background:url('content.jpg') center/cover fixed no-repeat}
 section{
-  padding:20px 18px;
-  text-align:center;
-  opacity:0;
-  transform:translateY(35px);
+  padding:20px 18px;text-align:center;
+  opacity:0;transform:translateY(35px)
 }
-section.show{
-  opacity:1;
-  transform:translateY(0);
-  transition:.9s ease;
-}
-
+section.show{opacity:1;transform:none;transition:.9s ease}
 .card{
   background:rgba(255,255,255,.95);
-  padding:34px 26px;
-  border-radius:26px;
-  max-width:700px;
-  margin:20px auto;
+  padding:34px 26px;border-radius:26px;
+  max-width:700px;margin:20px auto
 }
-
-/* TEXT */
-.nama{
-  font-family:'Playfair Display',serif;
-  font-size:34px;
-  margin:18px 0 6px;
-}
-
-/* COUNTDOWN */
-.countdown{
-  display:flex;
-  gap:12px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
+.nama{font-family:'Playfair Display',serif;font-size:34px;margin:18px 0 6px}
+.countdown{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .time{
-  background:white;
-  width:80px;
-  padding:14px;
-  border-radius:16px;
-  box-shadow:0 8px 18px rgba(0,0,0,.15);
+  background:white;width:80px;padding:14px;
+  border-radius:16px;box-shadow:0 8px 18px rgba(0,0,0,.15)
 }
-.time span{
-  font-size:24px;
-  font-weight:600;
-  color:#0b6fae;
-}
-
-/* BUTTON */
+.time span{font-size:24px;font-weight:600;color:#0b6fae}
 .copy-btn{
-  margin-top:12px;
-  padding:10px 22px;
-  border-radius:22px;
-  border:none;
-  background:#0b6fae;
-  color:white;
+  margin-top:12px;padding:10px 22px;
+  border-radius:22px;border:none;
+  background:#0b6fae;color:white
 }
-
-/* MUSIC FLOAT */
 #musicBtn{
-  position:fixed;
-  right:18px;
-  bottom:24px;
-  width:54px;
-  height:54px;
-  background:#0b6fae;
-  color:white;
+  position:fixed;right:18px;bottom:24px;
+  width:54px;height:54px;
+  background:#0b6fae;color:white;
   border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:50;
-  box-shadow:0 10px 25px rgba(0,0,0,.25);
-  animation:spin 6s linear infinite;
+  display:flex;justify-content:center;align-items:center;
+  z-index:50;box-shadow:0 10px 25px rgba(0,0,0,.25);
+  animation:spin 6s linear infinite
 }
 #musicBtn.paused{animation:none;opacity:.7}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* SCROLL INDICATOR */
 #scrollBar{
-  position:fixed;
-  right:8px;
-  top:50%;
+  position:fixed;right:8px;top:50%;
   transform:translateY(-50%);
-  width:4px;
-  height:130px;
+  width:4px;height:130px;
   background:rgba(255,255,255,.6);
-  border-radius:4px;
-  z-index:40;
+  border-radius:4px;z-index:40
 }
-#scrollProgress{
-  width:100%;
-  height:0%;
-  background:#0b6fae;
-  border-radius:4px;
-}
+#scrollProgress{width:100%;height:0%;background:#0b6fae;border-radius:4px}
 </style>
 </head>
 
@@ -218,23 +141,21 @@ section.show{
 <div class="time"><span id="s">0</span><small>Detik</small></div>
 </div>
 </section>
-  
+
 <!-- RSVP -->
 <section>
-  <h3>Konfirmasi Kehadiran</h3>
-  <div class="card">
-    <form id="rsvpForm">
-      <input type="text" id="rsvpNama" placeholder="Nama Anda" required
-        style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
-
-      <select id="rsvpStatus" required
-        style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
-        <option value="">-- Konfirmasi Kehadiran --</option>
-        <option value="Hadir">Hadir</option>
-        <option value="Tidak Hadir">Tidak Hadir</option>
-      </select>
-
-      <textarea id="rsvpPesan" placeholder="Ucapan & Doa"
+<h3>Konfirmasi Kehadiran</h3>
+<div class="card">
+<form id="rsvpForm">
+<input id="rsvpNama" readonly
+ style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
+<select id="rsvpStatus" required
+ style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-bottom:12px">
+<option value="">-- Konfirmasi kehadiran --</option>
+<option>Hadir</option>
+<option>Tidak Hadir</option>
+</select>
+<textarea id="rsvpPesan" placeholder="Ucapan & Doa"
         style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;height:90px"></textarea>
 
       <button type="submit" class="copy-btn" style="width:100%;margin-top:10px">
@@ -245,46 +166,18 @@ section.show{
     <p id="rsvpNotif" style="display:none;margin-top:12px">
       Terima kasih atas konfirmasi Anda 🤍
     </p>
-  </div>
-</section>
-  
-<!-- KADO -->
-<section>
-<h3><i class="fa-solid fa-gift"></i> Bagi yang ingin mengirim kan kado bisa ke alamat berikut ini</h3>
-<div class="card">
-<p>Kris Cell, depan Masjid Almuttaqin<br>Nglobo RT 03 RW 02<br>Kec. Jiken, Kab. Blora</p>
-<button class="copy-btn" onclick="copyAlamat()">Salin Alamat</button>
-<iframe src="https://www.google.com/maps?q=-7.0410782,111.4973953&output=embed" width="100%" height="280" style="border-radius:18px;border:0"></iframe>
 </div>
 </section>
 
-<!-- ANGPAO DIGITAL -->
-<section>
-<h3><i class="fa-solid fa-building-columns"></i> Angpao Digital</h3>
+<!-- GENERATOR (ADMIN ONLY) -->
+<section id="generator" style="display:none">
+<h3>Generator Link Tamu</h3>
 <div class="card">
-<p><i class="fa-solid fa-credit-card"></i> <b>BCA</b></p>
-<p>8546077506<br>a.n Kharisma Maharani Wijanarko</p>
-<button class="copy-btn" onclick="copyText('8546077506')">Salin Rek</button>
-<hr style="margin:24px 0">
-<p><i class="fa-solid fa-credit-card"></i> <b>BCA</b></p>
-<p>1960570371<br>a.n Muhamad Nurul Arifin</p>
-<button class="copy-btn" onclick="copyText('1960570371')">Salin Rek</button>
-</div>
-</section>
-
-<!-- LOKASI -->
-<section>
-<h3>Lokasi Acara</h3>
-<div class="card">
-<iframe src="https://www.google.com/maps?q=-7.0410782,111.4973953&output=embed" width="100%" height="280" style="border-radius:18px;border:0"></iframe>
-</div>
-</section>
-
-<section>
-<div class="card">
-<p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
-<p style="margin-top:18px;font-style:italic">Kami yang berbahagia</p>
-<p style="font-weight:bold">Risma & Nurul</p>
+<input id="namaTamuInput" placeholder="Nama Tamu"
+ style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc">
+<button onclick="buatLink()" class="btn" style="width:100%">Buat Link</button>
+<input id="hasilLink" readonly
+ style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;margin-top:12px">
 </div>
 </section>
 
@@ -295,11 +188,19 @@ section.show{
 
 <script>
 const qs=e=>document.querySelector(e);
-const cover=qs('#cover'), content=qs('#content'), music=qs('#music'), musicBtn=qs('#musicBtn');
+const cover=qs('#cover'),content=qs('#content'),music=qs('#music');
+const musicBtn=qs('#musicBtn');
+const params=new URLSearchParams(location.search);
 
-const p=new URLSearchParams(location.search);
-if(p.get('to')) qs('#guestName').innerText=`Kepada Yth: ${p.get('to')}`;
+/* Nama tamu */
+const tamu=params.get('to')||"Tamu Undangan";
+qs('#guestName').innerHTML=`Kepada Yth.<br><b>${decodeURIComponent(tamu)}</b>`;
+qs('#rsvpNama').value=decodeURIComponent(tamu);
 
+/* Admin only */
+if(params.get('admin')==="1") qs('#generator').style.display="block";
+
+/* Open */
 qs('#openBtn').onclick=e=>{
 e.preventDefault();
 cover.style.opacity=0;
@@ -307,11 +208,11 @@ setTimeout(()=>{
 cover.style.display='none';
 content.style.display='block';
 music.play().catch(()=>{});
-musicBtn.classList.remove('paused');
 animate();
 },1200);
 };
 
+/* Animasi */
 function animate(){
 const io=new IntersectionObserver(e=>{
 e.forEach(x=>x.isIntersecting&&x.target.classList.add('show'));
@@ -319,68 +220,37 @@ e.forEach(x=>x.isIntersecting&&x.target.classList.add('show'));
 document.querySelectorAll('section').forEach(s=>io.observe(s));
 }
 
-const t=new Date("February 02, 2026 09:00").getTime();
+/* Countdown */
+const target=new Date("February 02, 2026 09:00").getTime();
 setInterval(()=>{
-const x=t-new Date().getTime();
-if(x<0)return;
-d.innerText=Math.floor(x/86400000);
-h.innerText=Math.floor(x%86400000/3600000);
-m.innerText=Math.floor(x%3600000/60000);
-s.innerText=Math.floor(x%60000/1000);
+const now=new Date().getTime();
+const diff=target-now;if(diff<0)return;
+qs('#d').innerText=Math.floor(diff/86400000);
+qs('#h').innerText=Math.floor(diff%86400000/3600000);
+qs('#m').innerText=Math.floor(diff%3600000/60000);
+qs('#s').innerText=Math.floor(diff%60000/1000);
 },1000);
 
+/* Generator */
+function buatLink(){
+const n=qs('#namaTamuInput').value.trim();
+if(!n)return alert("Isi nama tamu");
+qs('#hasilLink').value=
+location.origin+location.pathname+"?to="+encodeURIComponent(n);
+}
+
+/* Music */
 musicBtn.onclick=()=>{
-music.paused?(music.play(),musicBtn.classList.remove('paused')):(music.pause(),musicBtn.classList.add('paused'));animate();
+music.paused?(music.play(),musicBtn.classList.remove('paused')):
+(music.pause(),musicBtn.classList.add('paused'));
 };
 
+/* Scroll */
 window.addEventListener('scroll',()=>{
-const h=document.documentElement.scrollHeight-window.innerHeight;
+const h=document.documentElement.scrollHeight-innerHeight;
 qs('#scrollProgress').style.height=(scrollY/h)*100+"%";
 });
-
-function copyAlamat(){
-navigator.clipboard.writeText("Kris Cell, depan Masjid Almuttaqin, Nglobo RT 03 RW 02, Kec. Jiken, Kab. Blora");
-alert("Alamat kado berhasil disalin");
-}
-function copyText(t){
-navigator.clipboard.writeText(t);
-alert("Berhasil disalin");
-}
-  
-const rsvpForm = document.getElementById('rsvpForm');
-const rsvpNotif = document.getElementById('rsvpNotif');
-
-if(rsvpForm){
-  rsvpForm.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    const nama = document.getElementById('rsvpNama').value;
-    const status = document.getElementById('rsvpStatus').value;
-    const pesan = document.getElementById('rsvpPesan').value;
-
-    if(!nama || !status){
-      alert("Nama dan kehadiran wajib diisi");
-      return;
-    }
-
-    const data = {
-      nama,
-      status,
-      pesan,
-      waktu: new Date().toLocaleString()
-    };
-
-    let rsvpList = JSON.parse(localStorage.getItem('rsvpList')) || [];
-    rsvpList.push(data);
-    localStorage.setItem('rsvpList', JSON.stringify(rsvpList));
-
-    rsvpForm.reset();
-    rsvpNotif.style.display = "block";
-  });
-}
 </script>
-
-  
 
 </body>
 </html>
